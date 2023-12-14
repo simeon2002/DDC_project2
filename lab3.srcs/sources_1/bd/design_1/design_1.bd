@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xD8B5F4E4F7B42B0A",
+      "boundary_crc": "0x429A13635550E9A2",
       "device": "xc7z020clg400-1",
       "name": "design_1",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
@@ -17,6 +17,7 @@
       "Debounce_Switch_4": "",
       "VGA_timings_0": "",
       "VGA_pattern_0": "",
+      "Debounce_Switch_5": "",
       "FSM_VGA_all_0": ""
     },
     "ports": {
@@ -62,6 +63,9 @@
       },
       "oLED": {
         "direction": "O"
+      },
+      "iReshape": {
+        "direction": "I"
       }
     },
     "components": {
@@ -305,6 +309,27 @@
           }
         }
       },
+      "Debounce_Switch_5": {
+        "vlnv": "xilinx.com:module_ref:Debounce_Switch:1.0",
+        "xci_name": "design_1_Debounce_Switch_2_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Debounce_Switch",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_Clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "i_Switch": {
+            "direction": "I"
+          },
+          "o_Switch": {
+            "direction": "O"
+          }
+        }
+      },
       "FSM_VGA_all_0": {
         "vlnv": "xilinx.com:module_ref:FSM_VGA_all:1.0",
         "xci_name": "design_1_FSM_VGA_all_0_0",
@@ -330,6 +355,9 @@
             "direction": "I"
           },
           "iPush_up": {
+            "direction": "I"
+          },
+          "iReshape": {
             "direction": "I"
           },
           "oShapeX": {
@@ -484,7 +512,8 @@
       "iClk_1": {
         "ports": [
           "iClk",
-          "clk_wiz_0/clk_in1"
+          "clk_wiz_0/clk_in1",
+          "Debounce_Switch_5/i_Clk"
         ]
       },
       "clk_wiz_0_clk_out1": {
@@ -509,6 +538,18 @@
         "ports": [
           "Debounce_Switch_4/o_Switch",
           "FSM_VGA_all_0/iPush_down"
+        ]
+      },
+      "i_Switch_0_1": {
+        "ports": [
+          "iReshape",
+          "Debounce_Switch_5/i_Switch"
+        ]
+      },
+      "Debounce_Switch_5_o_Switch": {
+        "ports": [
+          "Debounce_Switch_5/o_Switch",
+          "FSM_VGA_all_0/iReshape"
         ]
       }
     }

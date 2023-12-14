@@ -11,7 +11,7 @@ module FSM_VGA #(
     parameter HORIZONTAL_MAX = 640
     ) 
     (
-    input wire iClk, iRst, iPush,
+    input wire iClk, iRst, iPush, iReshape,
     input wire [1:0] iDirection_pushed,
     output wire oLED,
     output wire [9 : 0] oShapeX, oShapeY, oShape_size
@@ -25,7 +25,7 @@ module FSM_VGA #(
     localparam sMove_right = 3'b100;
     localparam sMove_down = 3'b101;
     localparam sMove_left = 3'b110;
-    
+    localparam sReshape = 3'b111;
     
     // state register
     reg [2:0] rFSM_current, wFSM_next;
@@ -51,7 +51,7 @@ module FSM_VGA #(
     assign w_iRst_timer = (rFSM_current == sIdle || iRst || rFSM_current == sMove_up || rFSM_current == sMove_right ||rFSM_current == sMove_down || rFSM_current == sMove_left) ? 1: 0;
     timer_1s #(.CLOCK_FREQ(CLOCK_FREQ))
         timer_inst(.iClk(iClk), .iRst(w_iRst_timer), .iEn(r_iEn_timer), .oQ(oTimer));
-//    reg w_iBoundary_vert, w_iBoundary_hor;
+
 always @(*)
 begin
     case (rFSM_current)
@@ -62,12 +62,15 @@ begin
         sIdle: begin
             if (iPush == 0)
                 wFSM_next = sIdle;
+            else if (iReshape == 1 && iPush == 1) begin
+                wFSM_next = sReshape;
+            end
             else
                 wFSM_next = sWait;
         end
 
         sWait: begin
-            if (iPush == 1 && oTimer == 1) begin
+            if (iPush == 1 && oTimer == 1 && iReshape == 0) begin
                 case (iDirection_pushed)
                     0: wFSM_next = sMove_up;
                     1: wFSM_next = sMove_right;
@@ -86,7 +89,9 @@ begin
         sMove_up, sMove_down, sMove_right, sMove_left: begin
             wFSM_next = sWait;
         end
-
+        sReshape: begin
+            wFSM_next = sIdle;
+        end
         default: begin
             wFSM_next = sInit;
         end
@@ -98,7 +103,7 @@ end
     
     /* Instantiation of timer*/ 
     reg r_oLED;
-    reg [9 : 0] r_oShapeX_current, r_oShapeX_next, r_oShapeY_current, r_oShapeY_next, r_oShape_size;
+    reg [9 : 0] r_oShapeX_current, r_oShapeX_next, r_oShapeY_current, r_oShapeY_next, r_oShape_size, r_oShape_size_next;
 
     
     // defining registers for x and y coordinates
@@ -106,6 +111,7 @@ end
     begin
         r_oShapeX_current <= r_oShapeX_next;
         r_oShapeY_current <= r_oShapeY_next;
+        r_oShape_size <= r_oShape_size_next;
     end
     
     
@@ -118,7 +124,7 @@ end
                 r_oLED = 1;
                 r_oShapeX_next = r_oShapeX_current;
                 r_oShapeY_next = r_oShapeY_current;
-                r_oShape_size = shape_size;
+                r_oShape_size_next = shape_size;
             end
     
             sMove_up: begin
@@ -131,7 +137,7 @@ end
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 1;
                 r_oShapeX_next = r_oShapeX_current;
-                r_oShape_size = shape_size;
+                r_oShape_size_next = shape_size;
             end
     
             sMove_right: begin
@@ -144,7 +150,7 @@ end
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 1;
                 r_oShapeY_next = r_oShapeY_current;
-                r_oShape_size = shape_size;
+                r_oShape_size_next = shape_size;
             end
     
             sMove_down: begin
@@ -158,7 +164,7 @@ end
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 1;
                 r_oShapeX_next = r_oShapeX_current;
-                r_oShape_size = shape_size;
+                r_oShape_size_next = shape_size;
             end
     
             sMove_left: begin
@@ -171,14 +177,26 @@ end
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 1;
                 r_oShapeY_next = r_oShapeY_current;
-                r_oShape_size = shape_size;
+                r_oShape_size_next = shape_size;
+            end
+    
+            sReshape: begin
+                if (iPush == 1 && iDirection_pushed == 0) begin
+                    r_oShape_size_next <= r_oShape_size + 5;
+                end
+                else if (iPush == 1 && iDirection_pushed == 1) begin
+                    r_oShape_size_next <= r_oShape_size - 5;
+                end
+                else begin
+                    r_oShape_size_next <= r_oShape_size;
+                end
             end
     
             sInit: begin
                 // Reset size of the shape.
                 r_oShapeX_next = shapeX;
                 r_oShapeY_next = shapeY;
-                r_oShape_size = shape_size;
+                r_oShape_size_next = shape_size;
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 0;
             end
@@ -189,8 +207,7 @@ end
                 r_oLED = 0; // Turn LED off
                 r_oShapeX_next = r_oShapeX_current;
                 r_oShapeY_next = r_oShapeY_current;
-                r_oShape_size = shape_size;
-                
+                r_oShape_size_next = shape_size;
             end
         endcase
     end

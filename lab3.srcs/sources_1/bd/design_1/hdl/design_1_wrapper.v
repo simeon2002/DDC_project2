@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-//Date        : Thu Dec 14 18:20:34 2023
+//Date        : Thu Dec 14 20:09:51 2023
 //Host        : billionaire-he-will-be running 64-bit Ubuntu 20.04.6 LTS
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -15,6 +15,7 @@ module design_1_wrapper
     iPush_left,
     iPush_right,
     iPush_up,
+    iReshape,
     iRst,
     oBlue,
     oGreen,
@@ -27,6 +28,7 @@ module design_1_wrapper
   input iPush_left;
   input iPush_right;
   input iPush_up;
+  input iReshape;
   input iRst;
   output [3:0]oBlue;
   output [3:0]oGreen;
@@ -40,6 +42,7 @@ module design_1_wrapper
   wire iPush_left;
   wire iPush_right;
   wire iPush_up;
+  wire iReshape;
   wire iRst;
   wire [3:0]oBlue;
   wire [3:0]oGreen;
@@ -54,6 +57,7 @@ module design_1_wrapper
         .iPush_left(iPush_left),
         .iPush_right(iPush_right),
         .iPush_up(iPush_up),
+        .iReshape(iReshape),
         .iRst(iRst),
         .oBlue(oBlue),
         .oGreen(oGreen),

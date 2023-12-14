@@ -24,7 +24,7 @@ module FSM_VGA_all #(
     parameter CLOCK_FREQ = 500_000
     )
     (
-    input wire iClk, iRst, iPush_left, iPush_down, iPush_right, iPush_up,
+    input wire iClk, iRst, iPush_left, iPush_down, iPush_right, iPush_up, iReshape,
     output wire [9:0] oShapeX, oShapeY, oShape_size,
     output wire oLED
     );
@@ -72,6 +72,7 @@ FSM_VGA #(.CLOCK_FREQ(CLOCK_FREQ))
         .iRst(iRst),
         .iPush(r_iButton_pushed),
         .iDirection_pushed(r_iDirection_pushed),
+        .iReshape(iReshape),
         .oLED(w_oLED), 
         .oShapeX(w_oShapeX), 
         .oShapeY(w_oShapeY),

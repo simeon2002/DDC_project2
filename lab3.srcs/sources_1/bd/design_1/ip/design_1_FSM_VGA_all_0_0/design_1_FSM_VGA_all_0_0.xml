@@ -79,6 +79,18 @@
         </spirit:wire>
       </spirit:port>
       <spirit:port>
+        <spirit:name>iReshape</spirit:name>
+        <spirit:wire>
+          <spirit:direction>in</spirit:direction>
+          <spirit:wireTypeDefs>
+            <spirit:wireTypeDef>
+              <spirit:typeName>wire</spirit:typeName>
+              <spirit:viewNameRef>dummy_view</spirit:viewNameRef>
+            </spirit:wireTypeDef>
+          </spirit:wireTypeDefs>
+        </spirit:wire>
+      </spirit:port>
+      <spirit:port>
         <spirit:name>oShapeX</spirit:name>
         <spirit:wire>
           <spirit:direction>out</spirit:direction>
