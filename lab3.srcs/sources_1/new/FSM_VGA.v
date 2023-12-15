@@ -52,51 +52,48 @@ module FSM_VGA #(
     timer_1s #(.CLOCK_FREQ(CLOCK_FREQ))
         timer_inst(.iClk(iClk), .iRst(w_iRst_timer), .iEn(r_iEn_timer), .oQ(oTimer));
 
-always @(*)
-begin
-    case (rFSM_current)
-        sInit: begin
-            wFSM_next = sIdle;
-        end
-            
-        sIdle: begin
-            if (iPush == 0)
-                wFSM_next = sIdle;
-            else if (iReshape == 1 && iPush == 1) begin
-                wFSM_next = sReshape;
-            end
-            else
-                wFSM_next = sWait;
-        end
-
-        sWait: begin
-            if (iPush == 1 && oTimer == 1 && iReshape == 0) begin
-                case (iDirection_pushed)
-                    0: wFSM_next = sMove_up;
-                    1: wFSM_next = sMove_right;
-                    2: wFSM_next = sMove_down;
-                    3: wFSM_next = sMove_left;
-                    default: wFSM_next = sWait;
-                endcase
-            end else if (iPush == 1 && oTimer == 0) begin
-                // Condition for whenever timer = 0 but button is pushed
-                wFSM_next = sWait;
-            end else begin
+    always @(*)
+    begin
+        case (rFSM_current)
+            sInit: begin
                 wFSM_next = sIdle;
             end
-        end
-
-        sMove_up, sMove_down, sMove_right, sMove_left: begin
-            wFSM_next = sWait;
-        end
-        sReshape: begin
-            wFSM_next = sIdle;
-        end
-        default: begin
-            wFSM_next = sInit;
-        end
-    endcase
-end
+                
+            sIdle: begin
+                if (iPush == 0)
+                    wFSM_next = sIdle;
+                else
+                    wFSM_next = sWait;
+            end
+    
+            sWait: begin
+                if (iPush == 1 && oTimer) begin
+                    case (iDirection_pushed)
+                        0: wFSM_next = sMove_up;
+                        1: wFSM_next = sMove_right;
+                        2: wFSM_next = sMove_down;
+                        3: wFSM_next = sMove_left;
+                        default: wFSM_next = sWait;
+                    endcase
+                end else if (iPush == 1 && oTimer == 0) begin
+                    // Condition for whenever timer = 0 but button is pushed
+                    wFSM_next = sWait;
+                end else begin
+                    wFSM_next = sIdle;
+                end
+            end
+    
+            sMove_up, sMove_down, sMove_right, sMove_left: begin
+                wFSM_next = sWait;
+            end
+    //        sReshape: begin
+    //            wFSM_next = sIdle;
+    //        end
+            default: begin
+                wFSM_next = sInit;
+            end
+        endcase
+    end
 
         
     // 3. defining output logic here.
@@ -178,18 +175,6 @@ end
                 r_oLED = 1;
                 r_oShapeY_next = r_oShapeY_current;
                 r_oShape_size_next = shape_size;
-            end
-    
-            sReshape: begin
-                if (iPush == 1 && iDirection_pushed == 0) begin
-                    r_oShape_size_next <= r_oShape_size + 5;
-                end
-                else if (iPush == 1 && iDirection_pushed == 1) begin
-                    r_oShape_size_next <= r_oShape_size - 5;
-                end
-                else begin
-                    r_oShape_size_next <= r_oShape_size;
-                end
             end
     
             sInit: begin

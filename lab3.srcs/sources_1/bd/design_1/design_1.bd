@@ -16,9 +16,9 @@
       "Debounce_Switch_3": "",
       "Debounce_Switch_4": "",
       "VGA_timings_0": "",
-      "VGA_pattern_0": "",
       "Debounce_Switch_5": "",
-      "FSM_VGA_all_0": ""
+      "FSM_VGA_all_0": "",
+      "VGA_pattern_0": ""
     },
     "ports": {
       "oRed": {
@@ -246,69 +246,6 @@
           }
         }
       },
-      "VGA_pattern_0": {
-        "vlnv": "xilinx.com:module_ref:VGA_pattern:1.0",
-        "xci_name": "design_1_VGA_pattern_0_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "VGA_pattern",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "iCountH": {
-            "direction": "I",
-            "left": "9",
-            "right": "0"
-          },
-          "iShapeX": {
-            "direction": "I",
-            "left": "9",
-            "right": "0"
-          },
-          "iShapeSize": {
-            "direction": "I",
-            "left": "9",
-            "right": "0"
-          },
-          "iCountV": {
-            "direction": "I",
-            "left": "9",
-            "right": "0"
-          },
-          "iShapeY": {
-            "direction": "I",
-            "left": "9",
-            "right": "0"
-          },
-          "iHS": {
-            "direction": "I"
-          },
-          "iVS": {
-            "direction": "I"
-          },
-          "oRed": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "oGreen": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "oBlue": {
-            "direction": "O",
-            "left": "3",
-            "right": "0"
-          },
-          "oVS": {
-            "direction": "O"
-          },
-          "oHS": {
-            "direction": "O"
-          }
-        }
-      },
       "Debounce_Switch_5": {
         "vlnv": "xilinx.com:module_ref:Debounce_Switch:1.0",
         "xci_name": "design_1_Debounce_Switch_2_0",
@@ -376,6 +313,69 @@
             "right": "0"
           },
           "oLED": {
+            "direction": "O"
+          }
+        }
+      },
+      "VGA_pattern_0": {
+        "vlnv": "xilinx.com:module_ref:VGA_pattern:1.0",
+        "xci_name": "design_1_VGA_pattern_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "VGA_pattern",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "iCountH": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "iShapeX": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "iShapeSize": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "iCountV": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "iShapeY": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "iHS": {
+            "direction": "I"
+          },
+          "iVS": {
+            "direction": "I"
+          },
+          "oRed": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "oGreen": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "oBlue": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "oVS": {
+            "direction": "O"
+          },
+          "oHS": {
             "direction": "O"
           }
         }
