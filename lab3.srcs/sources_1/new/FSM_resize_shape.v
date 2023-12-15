@@ -23,7 +23,9 @@
 module FSM_resize_shape #(
     parameter shape_sizeX = 60,
     parameter shape_sizeY = 60,
-    parameter CLOCK_FREQ = 25_000_000
+    parameter CLOCK_FREQ = 25_000_000,
+    parameter LOWER_LIMIT = 5,
+    parameter UPPER_LIMIT = 100
     ) (
     input wire iClk, iRst, iPush,
     input wire [1:0] iDirection_pushed,
@@ -121,25 +123,33 @@ module FSM_resize_shape #(
             
             sResizeX_out: begin
                 r_iEn_timer = 0; 
-                r_iShape_sizeX_next = r_iShape_sizeX_current + 1;
+                if (r_iShape_sizeX_current < UPPER_LIMIT - 1) begin 
+                    r_iShape_sizeX_next = r_iShape_sizeX_current + 1;
+                end
                 r_iShape_sizeY_next = r_iShape_sizeY_current;  
             end
             
             sResizeX_in: begin
                 r_iEn_timer = 0;
-                r_iShape_sizeX_next = r_iShape_sizeX_current - 1;
+                if (r_iShape_sizeX_current > LOWER_LIMIT) begin
+                    r_iShape_sizeX_next = r_iShape_sizeX_current - 1;
+                end
                 r_iShape_sizeY_next = r_iShape_sizeY_current;
             end
             
             sResizeY_out: begin
                 r_iEn_timer = 0;
-                r_iShape_sizeY_next = r_iShape_sizeY_current + 1;
+                if (r_iShape_sizeY_current < UPPER_LIMIT - 1) begin
+                    r_iShape_sizeY_next = r_iShape_sizeY_current + 1;
+                end
                 r_iShape_sizeX_next = r_iShape_sizeX_current;
             end
             
             sResizeY_in: begin
                 r_iEn_timer = 0;
-                r_iShape_sizeY_next = r_iShape_sizeY_current - 1;
+                if (r_iShape_sizeY_current > LOWER_LIMIT) begin
+                    r_iShape_sizeY_next = r_iShape_sizeY_current - 1;
+                end
                 r_iShape_sizeX_next = r_iShape_sizeX_current;
             end
             

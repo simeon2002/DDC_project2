@@ -34,8 +34,8 @@ module VGA_pattern #(
     parameter   V_TOT   = HEIGHT + V_FP + V_PW + V_BP    //V TOT = 525
     )
     (
-    input wire[$clog2(H_TOT) -1 :0] iCountH, iShapeX, iShapeSize,
-    input wire[$clog2(V_TOT) -1 :0] iCountV, iShapeY,
+    input wire[$clog2(H_TOT) -1 :0] iCountH, iShapeX, iShape_sizeX,
+    input wire[$clog2(V_TOT) -1 :0] iCountV, iShapeY, iShape_sizeY,
     input wire iHS, iVS,
     output wire [3:0] oRed, oGreen, oBlue,
     output wire oVS, oHS
@@ -51,8 +51,8 @@ module VGA_pattern #(
         if (
             iCountH >= iShapeX && 
             iCountV >= iShapeY &&
-            iCountH < iShapeX + iShapeSize && 
-            iCountV < iShapeY + iShapeSize
+            iCountH < iShapeX + iShape_sizeX && 
+            iCountV < iShapeY + iShape_sizeY
             )
             begin
                 r_oRed = 15;
@@ -67,8 +67,8 @@ module VGA_pattern #(
          end
     end
  
-    assign oVS=iVS; 
-    assign oHS=iHS;
+    assign oVS = iVS; 
+    assign oHS = iHS;
     assign oRed = r_oRed;
     assign oGreen = r_oGreen;
     assign oBlue = r_oBlue;

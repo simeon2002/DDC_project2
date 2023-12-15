@@ -4,17 +4,16 @@ module FSM_VGA #(
     parameter CLOCK_FREQ = 25_000_000,
     parameter shapeX = 1,
     parameter shapeY = 1,
-    parameter shape_size = 60,
     parameter VERTICAL_MIN = 0,
     parameter VERTICAL_MAX = 480,
     parameter HORIZONTAL_MIN = 0,
     parameter HORIZONTAL_MAX = 640
     ) 
     (
-    input wire iClk, iRst, iPush, iReshape,
+    input wire iClk, iRst, iPush,
     input wire [1:0] iDirection_pushed,
     output wire oLED,
-    output wire [9 : 0] oShapeX, oShapeY, oShape_size
+    output wire [9 : 0] oShapeX, oShapeY
     );
      
     // definition of states by use of three bcd encoded digits
@@ -100,7 +99,7 @@ module FSM_VGA #(
     
     /* Instantiation of timer*/ 
     reg r_oLED;
-    reg [9 : 0] r_oShapeX_current, r_oShapeX_next, r_oShapeY_current, r_oShapeY_next, r_oShape_size, r_oShape_size_next;
+    reg [9 : 0] r_oShapeX_current, r_oShapeX_next, r_oShapeY_current, r_oShapeY_next;
 
     
     // defining registers for x and y coordinates
@@ -108,7 +107,6 @@ module FSM_VGA #(
     begin
         r_oShapeX_current <= r_oShapeX_next;
         r_oShapeY_current <= r_oShapeY_next;
-        r_oShape_size <= r_oShape_size_next;
     end
     
     
@@ -121,11 +119,10 @@ module FSM_VGA #(
                 r_oLED = 1;
                 r_oShapeX_next = r_oShapeX_current;
                 r_oShapeY_next = r_oShapeY_current;
-                r_oShape_size_next = shape_size;
             end
     
             sMove_up: begin
-                if (r_oShapeY_current > VERTICAL_MIN + 1) begin
+                if (r_oShapeY_current > VERTICAL_MIN) begin
                     r_oShapeY_next = r_oShapeY_current - 1;
                 end
                 else begin
@@ -134,11 +131,10 @@ module FSM_VGA #(
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 1;
                 r_oShapeX_next = r_oShapeX_current;
-                r_oShape_size_next = shape_size;
             end
     
             sMove_right: begin
-                if (r_oShapeX_current < HORIZONTAL_MAX - 2) begin 
+                if (r_oShapeX_current < HORIZONTAL_MAX - 1) begin 
                     r_oShapeX_next = r_oShapeX_current + 1;
                 end
                 else begin
@@ -147,11 +143,10 @@ module FSM_VGA #(
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 1;
                 r_oShapeY_next = r_oShapeY_current;
-                r_oShape_size_next = shape_size;
             end
     
             sMove_down: begin
-                if (r_oShapeY_current < VERTICAL_MAX - 2) begin
+                if (r_oShapeY_current < VERTICAL_MAX - 1) begin
                     r_oShapeY_next = r_oShapeY_current + 1;
                 end
                 else begin
@@ -161,11 +156,10 @@ module FSM_VGA #(
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 1;
                 r_oShapeX_next = r_oShapeX_current;
-                r_oShape_size_next = shape_size;
             end
     
             sMove_left: begin
-                if (r_oShapeX_current > HORIZONTAL_MIN + 1) begin
+                if (r_oShapeX_current > HORIZONTAL_MIN) begin
                     r_oShapeX_next = r_oShapeX_current - 1;
                 end
                  else begin
@@ -174,14 +168,12 @@ module FSM_VGA #(
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 1;
                 r_oShapeY_next = r_oShapeY_current;
-                r_oShape_size_next = shape_size;
             end
     
             sInit: begin
                 // Reset size of the shape.
                 r_oShapeX_next = shapeX;
                 r_oShapeY_next = shapeY;
-                r_oShape_size_next = shape_size;
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 0;
             end
@@ -192,7 +184,6 @@ module FSM_VGA #(
                 r_oLED = 0; // Turn LED off
                 r_oShapeX_next = r_oShapeX_current;
                 r_oShapeY_next = r_oShapeY_current;
-                r_oShape_size_next = shape_size;
             end
         endcase
     end
@@ -201,6 +192,4 @@ module FSM_VGA #(
     assign oLED = r_oLED;
     assign oShapeX = r_oShapeX_current;
     assign oShapeY = r_oShapeY_current;
-    assign oShape_size = r_oShape_size;
-
 endmodule

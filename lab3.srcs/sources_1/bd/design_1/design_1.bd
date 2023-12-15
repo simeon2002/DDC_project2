@@ -1,24 +1,25 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x429A13635550E9A2",
+      "boundary_crc": "0x9EFF91595A9B543F",
       "device": "xc7z020clg400-1",
       "name": "design_1",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2020.1"
+      "tool_version": "2020.1",
+      "validated": "true"
     },
     "design_tree": {
       "clk_wiz_0": "",
-      "Debounce_Switch_0": "",
       "Debounce_Switch_1": "",
       "Debounce_Switch_2": "",
       "Debounce_Switch_3": "",
       "Debounce_Switch_4": "",
       "VGA_timings_0": "",
       "Debounce_Switch_5": "",
-      "FSM_VGA_all_0": "",
-      "VGA_pattern_0": ""
+      "VGA_pattern_0": "",
+      "Debounce_Switch_6": "",
+      "FSM_VGA_all_0": ""
     },
     "ports": {
       "oRed": {
@@ -31,12 +32,31 @@
         "left": "3",
         "right": "0"
       },
-      "iRst": {
-        "direction": "I"
-      },
       "iClk": {
         "type": "clk",
-        "direction": "I"
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "design_1_iClk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
       },
       "oBlue": {
         "direction": "O",
@@ -64,7 +84,10 @@
       "oLED": {
         "direction": "O"
       },
-      "iReshape": {
+      "iSwitch1": {
+        "direction": "I"
+      },
+      "iSwitch0": {
         "direction": "I"
       }
     },
@@ -108,27 +131,6 @@
           }
         }
       },
-      "Debounce_Switch_0": {
-        "vlnv": "xilinx.com:module_ref:Debounce_Switch:1.0",
-        "xci_name": "design_1_Debounce_Switch_0_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Debounce_Switch",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "i_Clk": {
-            "type": "clk",
-            "direction": "I"
-          },
-          "i_Switch": {
-            "direction": "I"
-          },
-          "o_Switch": {
-            "direction": "O"
-          }
-        }
-      },
       "Debounce_Switch_1": {
         "vlnv": "xilinx.com:module_ref:Debounce_Switch:1.0",
         "xci_name": "design_1_Debounce_Switch_0_1",
@@ -140,7 +142,21 @@
         "ports": {
           "i_Clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "i_Switch": {
             "direction": "I"
@@ -161,7 +177,21 @@
         "ports": {
           "i_Clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "i_Switch": {
             "direction": "I"
@@ -182,7 +212,21 @@
         "ports": {
           "i_Clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "i_Switch": {
             "direction": "I"
@@ -203,7 +247,21 @@
         "ports": {
           "i_Clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "i_Switch": {
             "direction": "I"
@@ -223,7 +281,21 @@
         },
         "ports": {
           "iClk": {
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "iRst": {
             "direction": "I"
@@ -257,62 +329,26 @@
         "ports": {
           "i_Clk": {
             "type": "clk",
-            "direction": "I"
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
           },
           "i_Switch": {
             "direction": "I"
           },
           "o_Switch": {
-            "direction": "O"
-          }
-        }
-      },
-      "FSM_VGA_all_0": {
-        "vlnv": "xilinx.com:module_ref:FSM_VGA_all:1.0",
-        "xci_name": "design_1_FSM_VGA_all_0_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "FSM_VGA_all",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "iClk": {
-            "direction": "I"
-          },
-          "iRst": {
-            "direction": "I"
-          },
-          "iPush_left": {
-            "direction": "I"
-          },
-          "iPush_down": {
-            "direction": "I"
-          },
-          "iPush_right": {
-            "direction": "I"
-          },
-          "iPush_up": {
-            "direction": "I"
-          },
-          "iReshape": {
-            "direction": "I"
-          },
-          "oShapeX": {
-            "direction": "O",
-            "left": "9",
-            "right": "0"
-          },
-          "oShapeY": {
-            "direction": "O",
-            "left": "9",
-            "right": "0"
-          },
-          "oShape_size": {
-            "direction": "O",
-            "left": "9",
-            "right": "0"
-          },
-          "oLED": {
             "direction": "O"
           }
         }
@@ -336,7 +372,7 @@
             "left": "9",
             "right": "0"
           },
-          "iShapeSize": {
+          "iShape_sizeX": {
             "direction": "I",
             "left": "9",
             "right": "0"
@@ -347,6 +383,11 @@
             "right": "0"
           },
           "iShapeY": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "iShape_sizeY": {
             "direction": "I",
             "left": "9",
             "right": "0"
@@ -376,6 +417,113 @@
             "direction": "O"
           },
           "oHS": {
+            "direction": "O"
+          }
+        }
+      },
+      "Debounce_Switch_6": {
+        "vlnv": "xilinx.com:module_ref:Debounce_Switch:1.0",
+        "xci_name": "design_1_Debounce_Switch_5_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Debounce_Switch",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_Clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "i_Switch": {
+            "direction": "I"
+          },
+          "o_Switch": {
+            "direction": "O"
+          }
+        }
+      },
+      "FSM_VGA_all_0": {
+        "vlnv": "xilinx.com:module_ref:FSM_VGA_all:1.0",
+        "xci_name": "design_1_FSM_VGA_all_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "FSM_VGA_all",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "iClk": {
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "iPush_left": {
+            "direction": "I"
+          },
+          "iPush_down": {
+            "direction": "I"
+          },
+          "iPush_right": {
+            "direction": "I"
+          },
+          "iPush_up": {
+            "direction": "I"
+          },
+          "iSwitch0": {
+            "direction": "I"
+          },
+          "iSwitch1": {
+            "direction": "I"
+          },
+          "oShapeX": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "oShapeY": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "oShape_sizeX": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "oShape_sizeY": {
+            "direction": "O",
+            "left": "9",
+            "right": "0"
+          },
+          "oLED": {
+            "direction": "O"
+          },
+          "oRst_timer": {
             "direction": "O"
           }
         }
@@ -454,25 +602,6 @@
           "VGA_pattern_0/iShapeY"
         ]
       },
-      "FSM_VGA_all_0_oShape_size": {
-        "ports": [
-          "FSM_VGA_all_0/oShape_size",
-          "VGA_pattern_0/iShapeSize"
-        ]
-      },
-      "iRst_1": {
-        "ports": [
-          "iRst",
-          "Debounce_Switch_0/i_Switch"
-        ]
-      },
-      "Debounce_Switch_0_o_Switch": {
-        "ports": [
-          "Debounce_Switch_0/o_Switch",
-          "VGA_timings_0/iRst",
-          "FSM_VGA_all_0/iRst"
-        ]
-      },
       "iPush_left_1": {
         "ports": [
           "iPush_left",
@@ -509,22 +638,16 @@
           "FSM_VGA_all_0/iPush_up"
         ]
       },
-      "iClk_1": {
-        "ports": [
-          "iClk",
-          "clk_wiz_0/clk_in1",
-          "Debounce_Switch_5/i_Clk"
-        ]
-      },
       "clk_wiz_0_clk_out1": {
         "ports": [
           "clk_wiz_0/clk_out1",
-          "Debounce_Switch_0/i_Clk",
           "Debounce_Switch_1/i_Clk",
           "Debounce_Switch_2/i_Clk",
           "Debounce_Switch_3/i_Clk",
           "Debounce_Switch_4/i_Clk",
           "VGA_timings_0/iClk",
+          "Debounce_Switch_5/i_Clk",
+          "Debounce_Switch_6/i_Clk",
           "FSM_VGA_all_0/iClk"
         ]
       },
@@ -542,14 +665,50 @@
       },
       "i_Switch_0_1": {
         "ports": [
-          "iReshape",
+          "iSwitch1",
           "Debounce_Switch_5/i_Switch"
         ]
       },
       "Debounce_Switch_5_o_Switch": {
         "ports": [
           "Debounce_Switch_5/o_Switch",
-          "FSM_VGA_all_0/iReshape"
+          "FSM_VGA_all_0/iSwitch1"
+        ]
+      },
+      "Debounce_Switch_6_o_Switch": {
+        "ports": [
+          "Debounce_Switch_6/o_Switch",
+          "FSM_VGA_all_0/iSwitch0"
+        ]
+      },
+      "i_Switch_0_2": {
+        "ports": [
+          "iSwitch0",
+          "Debounce_Switch_6/i_Switch"
+        ]
+      },
+      "iClk_1": {
+        "ports": [
+          "iClk",
+          "clk_wiz_0/clk_in1"
+        ]
+      },
+      "FSM_VGA_all_0_oRst_timer": {
+        "ports": [
+          "FSM_VGA_all_0/oRst_timer",
+          "VGA_timings_0/iRst"
+        ]
+      },
+      "FSM_VGA_all_0_oShape_sizeY": {
+        "ports": [
+          "FSM_VGA_all_0/oShape_sizeY",
+          "VGA_pattern_0/iShape_sizeY"
+        ]
+      },
+      "FSM_VGA_all_0_oShape_sizeX": {
+        "ports": [
+          "FSM_VGA_all_0/oShape_sizeX",
+          "VGA_pattern_0/iShape_sizeX"
         ]
       }
     }

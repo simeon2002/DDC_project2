@@ -52,48 +52,59 @@
 
 (* X_CORE_INFO = "FSM_VGA_all,Vivado 2020.1" *)
 (* CHECK_LICENSE_TYPE = "design_1_FSM_VGA_all_0_0,FSM_VGA_all,{}" *)
-(* CORE_GENERATION_INFO = "design_1_FSM_VGA_all_0_0,FSM_VGA_all,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=FSM_VGA_all,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CLOCK_FREQ=500000}" *)
+(* CORE_GENERATION_INFO = "design_1_FSM_VGA_all_0_0,FSM_VGA_all,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=FSM_VGA_all,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CLOCK_FREQ=500000,CLOCK_FREQ_RESIZE=2000000,SHAPE_SIZEX=50,SHAPE_SIZEY=50,SHAPEX=290,SHAPEY=210}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_FSM_VGA_all_0_0 (
   iClk,
-  iRst,
   iPush_left,
   iPush_down,
   iPush_right,
   iPush_up,
-  iReshape,
+  iSwitch0,
+  iSwitch1,
   oShapeX,
   oShapeY,
-  oShape_size,
-  oLED
+  oShape_sizeX,
+  oShape_sizeY,
+  oLED,
+  oRst_timer
 );
 
 input wire iClk;
-input wire iRst;
 input wire iPush_left;
 input wire iPush_down;
 input wire iPush_right;
 input wire iPush_up;
-input wire iReshape;
+input wire iSwitch0;
+input wire iSwitch1;
 output wire [9 : 0] oShapeX;
 output wire [9 : 0] oShapeY;
-output wire [9 : 0] oShape_size;
+output wire [9 : 0] oShape_sizeX;
+output wire [9 : 0] oShape_sizeY;
 output wire oLED;
+output wire oRst_timer;
 
   FSM_VGA_all #(
-    .CLOCK_FREQ(500000)
+    .CLOCK_FREQ(500000),
+    .CLOCK_FREQ_RESIZE(2000000),
+    .SHAPE_SIZEX(50),
+    .SHAPE_SIZEY(50),
+    .SHAPEX(290),
+    .SHAPEY(210)
   ) inst (
     .iClk(iClk),
-    .iRst(iRst),
     .iPush_left(iPush_left),
     .iPush_down(iPush_down),
     .iPush_right(iPush_right),
     .iPush_up(iPush_up),
-    .iReshape(iReshape),
+    .iSwitch0(iSwitch0),
+    .iSwitch1(iSwitch1),
     .oShapeX(oShapeX),
     .oShapeY(oShapeY),
-    .oShape_size(oShape_size),
-    .oLED(oLED)
+    .oShape_sizeX(oShape_sizeX),
+    .oShape_sizeY(oShape_sizeY),
+    .oLED(oLED),
+    .oRst_timer(oRst_timer)
   );
 endmodule
