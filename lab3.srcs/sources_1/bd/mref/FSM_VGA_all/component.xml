@@ -15,7 +15,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>555c7f53</spirit:value>
+            <spirit:value>d32b567a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -28,7 +28,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>555c7f53</spirit:value>
+            <spirit:value>d32b567a</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -288,7 +288,12 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>CLOCK_FREQ_RESIZE</spirit:name>
         <spirit:displayName>Clock Freq Resize</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLOCK_FREQ_RESIZE">2000000</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLOCK_FREQ_RESIZE">1000000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>CLOCK_FREQ_COLOR</spirit:name>
+        <spirit:displayName>Clock Freq Color</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLOCK_FREQ_COLOR">5000000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>SHAPE_SIZEX</spirit:name>
@@ -318,7 +323,7 @@
       <spirit:file>
         <spirit:name>xgui/FSM_VGA_all_v1_0.tcl</spirit:name>
         <spirit:fileType>tclSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_e12eb276</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_aabb3050</spirit:userFileType>
         <spirit:userFileType>XGUI_VERSION_2</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
@@ -333,7 +338,12 @@
     <spirit:parameter>
       <spirit:name>CLOCK_FREQ_RESIZE</spirit:name>
       <spirit:displayName>Clock Freq Resize</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CLOCK_FREQ_RESIZE">2000000</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CLOCK_FREQ_RESIZE">1000000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>CLOCK_FREQ_COLOR</spirit:name>
+      <spirit:displayName>Clock Freq Color</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CLOCK_FREQ_COLOR">5000000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>SHAPE_SIZEX</spirit:name>
@@ -375,7 +385,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2023-12-15T16:08:54Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2023-12-15T20:55:56Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.1</xilinx:xilinxVersion>

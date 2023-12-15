@@ -17,8 +17,8 @@
       "Debounce_Switch_4": "",
       "VGA_timings_0": "",
       "Debounce_Switch_5": "",
-      "VGA_pattern_0": "",
       "Debounce_Switch_6": "",
+      "VGA_pattern_0": "",
       "FSM_VGA_all_0": ""
     },
     "ports": {
@@ -353,6 +353,41 @@
           }
         }
       },
+      "Debounce_Switch_6": {
+        "vlnv": "xilinx.com:module_ref:Debounce_Switch:1.0",
+        "xci_name": "design_1_Debounce_Switch_5_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Debounce_Switch",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_Clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              },
+              "FREQ_HZ": {
+                "value": "25000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "i_Switch": {
+            "direction": "I"
+          },
+          "o_Switch": {
+            "direction": "O"
+          }
+        }
+      },
       "VGA_pattern_0": {
         "vlnv": "xilinx.com:module_ref:VGA_pattern:1.0",
         "xci_name": "design_1_VGA_pattern_0_0",
@@ -398,6 +433,21 @@
           "iVS": {
             "direction": "I"
           },
+          "iRed": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "iBlue": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "iGreen": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
           "oRed": {
             "direction": "O",
             "left": "3",
@@ -417,41 +467,6 @@
             "direction": "O"
           },
           "oHS": {
-            "direction": "O"
-          }
-        }
-      },
-      "Debounce_Switch_6": {
-        "vlnv": "xilinx.com:module_ref:Debounce_Switch:1.0",
-        "xci_name": "design_1_Debounce_Switch_5_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "Debounce_Switch",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "i_Clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "CLK_DOMAIN": {
-                "value": "/clk_wiz_0_clk_out1",
-                "value_src": "ip_prop"
-              },
-              "FREQ_HZ": {
-                "value": "25000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              }
-            }
-          },
-          "i_Switch": {
-            "direction": "I"
-          },
-          "o_Switch": {
             "direction": "O"
           }
         }
@@ -724,6 +739,24 @@
         "ports": [
           "FSM_VGA_all_0/oShape_sizeX",
           "VGA_pattern_0/iShape_sizeX"
+        ]
+      },
+      "FSM_VGA_all_0_oRed": {
+        "ports": [
+          "FSM_VGA_all_0/oRed",
+          "VGA_pattern_0/iRed"
+        ]
+      },
+      "FSM_VGA_all_0_oBlue": {
+        "ports": [
+          "FSM_VGA_all_0/oBlue",
+          "VGA_pattern_0/iBlue"
+        ]
+      },
+      "FSM_VGA_all_0_oGreen": {
+        "ports": [
+          "FSM_VGA_all_0/oGreen",
+          "VGA_pattern_0/iGreen"
         ]
       }
     }

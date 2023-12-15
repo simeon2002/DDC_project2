@@ -56,35 +56,35 @@ begin
     
     /* testing movement */
     
-    // button pushed.
-    r_iPush_left = 1;
-    #(50*T); // should toggle between the states every 15 cycles.
-    r_iPush_left = 0;
-    #(100*T);
+//    // button pushed.
+//    r_iPush_left = 1;
+//    #(50*T); // should toggle between the states every 15 cycles.
+//    r_iPush_left = 0;
+//    #(100*T);
     
-    // button pushed.
-    r_iPush_right = 1;
-    #(100*T); // should toggle between the states every 15 cycles.
-    r_iPush_right = 0;
-    #(50*T);
+//    // button pushed.
+//    r_iPush_right = 1;
+//    #(100*T); // should toggle between the states every 15 cycles.
+//    r_iPush_right = 0;
+//    #(50*T);
     
-    // button pushed.
-    r_iPush_down = 1;
-    #(50*T); // should toggle between the states every 15 cycles.
-    r_iPush_down = 0;
-    #(50*T);
+//    // button pushed.
+//    r_iPush_down = 1;
+//    #(50*T); // should toggle between the states every 15 cycles.
+//    r_iPush_down = 0;
+//    #(50*T);
     
-    // button pushed.
-    r_iPush_up = 1;
-    #(100*T); // should toggle between the states every 15 cycles.
-    r_iPush_up = 0;
-    #(50*T);
+//    // button pushed.
+//    r_iPush_up = 1;
+//    #(100*T); // should toggle between the states every 15 cycles.
+//    r_iPush_up = 0;
+//    #(50*T);
     
-    #(200*T); // difference = visible this way that we have a different state switches.
+//    #(200*T); // difference = visible this way that we have a different state switches.
     
     /* testing resizing of shape */
     r_iSwitch0 = 1;
-    r_iSwitch1 = 0;
+    r_iSwitch1 = 1;
     
     // button pushed.
     r_iPush_right = 1;
@@ -92,11 +92,11 @@ begin
     r_iPush_right = 0;
     #(50*T);
         
-    // button pushed.
-    r_iPush_left = 1;
-    #(50*T); // should toggle between the states every 15 cycles.
-    r_iPush_left = 0;
-    #(100*T);
+//    // button pushed.
+//    r_iPush_left = 1;
+//    #(50*T); // should toggle between the states every 15 cycles.
+//    r_iPush_left = 0;
+//    #(100*T);
     
     // button pushed.
     r_iPush_up = 1;

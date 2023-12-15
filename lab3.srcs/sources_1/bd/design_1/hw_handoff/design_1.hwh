@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 15 17:46:41 2023" VIVADOVERSION="2020.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 15 21:56:03 2023" VIVADOVERSION="2020.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -234,7 +234,8 @@
       <DOCUMENTS/>
       <PARAMETERS>
         <PARAMETER NAME="CLOCK_FREQ" VALUE="500000"/>
-        <PARAMETER NAME="CLOCK_FREQ_RESIZE" VALUE="2000000"/>
+        <PARAMETER NAME="CLOCK_FREQ_RESIZE" VALUE="1000000"/>
+        <PARAMETER NAME="CLOCK_FREQ_COLOR" VALUE="5000000"/>
         <PARAMETER NAME="SHAPE_SIZEX" VALUE="50"/>
         <PARAMETER NAME="SHAPE_SIZEY" VALUE="50"/>
         <PARAMETER NAME="SHAPEX" VALUE="290"/>
@@ -308,9 +309,21 @@
             <CONNECTION INSTANCE="VGA_timings_0" PORT="iRst"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="oRed" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="3" NAME="oBlue" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="O" LEFT="3" NAME="oGreen" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="3" NAME="oRed" RIGHT="0" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oRed">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="VGA_pattern_0" PORT="iRed"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="oBlue" RIGHT="0" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oBlue">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="VGA_pattern_0" PORT="iBlue"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="3" NAME="oGreen" RIGHT="0" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oGreen">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="VGA_pattern_0" PORT="iGreen"/>
+          </CONNECTIONS>
+        </PORT>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
@@ -369,6 +382,21 @@
         <PORT DIR="I" NAME="iVS" SIGIS="undef" SIGNAME="VGA_timings_0_oVS">
           <CONNECTIONS>
             <CONNECTION INSTANCE="VGA_timings_0" PORT="oVS"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="iRed" RIGHT="0" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oRed">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="FSM_VGA_all_0" PORT="oRed"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="iBlue" RIGHT="0" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oBlue">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="FSM_VGA_all_0" PORT="oBlue"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="iGreen" RIGHT="0" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oGreen">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="FSM_VGA_all_0" PORT="oGreen"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="3" NAME="oRed" RIGHT="0" SIGIS="undef" SIGNAME="VGA_pattern_0_oRed">

@@ -23,9 +23,10 @@
 module FSM_color_change
     #(
     parameter CLOCK_FREQ = 25_000_000,
-    parameter INIT_RED = 13,
+    parameter INIT_RED = 15,
     parameter INIT_BLUE = 0,
-    parameter INIT_GREEN = 0
+    parameter INIT_GREEN = 0,
+    parameter LIMIT = 16
     )
     (
     input wire iClk, iRst, iPush,
@@ -105,87 +106,101 @@ module FSM_color_change
     end
     
     // defining output logic
-//    reg [3:0] r_oRed_current, r_oRed_next, r_oBlue_current, r_oBlue_next, r_oGreen_current, r_oGreen_next;
-    reg r_iEn_red, r_iEn_blue, r_iEn_green;
-    wire [3:0] w_oRed, w_oBlue, w_oGreen;
+    reg [3:0] r_oRed_current, r_oRed_next, r_oBlue_current, r_oBlue_next, r_oGreen_current, r_oGreen_next;
+//    reg r_iEn_red, r_iEn_blue, r_iEn_green;
+//    wire [3:0] w_oRed, w_oBlue, w_oGreen;
     
-//    always @(posedge iClk) begin
-//        r_oRed_current <= r_oRed_next;
-//        r_oBlue_current <= r_oBlue_next;
-//        r_oGreen_current <= r_oGreen_next;
-//    end
+    always @(posedge iClk) begin
+        r_oRed_current <= r_oRed_next;
+        r_oBlue_current <= r_oBlue_next;
+        r_oGreen_current <= r_oGreen_next;
+    end
     
-    number_counter #(.LIMIT(16), .INITIAL_VALUE(INIT_RED))
-        number_counter_inst_red
-        (.iClk(iClk), 
-        .iRst(iRst),
-        .iEn(r_iEn_red),
-        .oQ(w_oRed)
-        );
+//    number_counter #(.LIMIT(16), .INITIAL_VALUE(INIT_RED))
+//        number_counter_inst_red
+//        (.iClk(iClk), 
+//        .iRst(iRst),
+//        .iEn(r_iEn_red),
+//        .oQ(w_oRed)
+//        );
         
-    number_counter #(.LIMIT(16), .INITIAL_VALUE(INIT_BLUE))
-        number_counter_inst_blue
-        (.iClk(iClk), 
-        .iRst(iRst),
-        .iEn(r_iEn_blue),
-        .oQ(w_oBlue)
-        ); 
+//    number_counter #(.LIMIT(16), .INITIAL_VALUE(INIT_BLUE))
+//        number_counter_inst_blue
+//        (.iClk(iClk), 
+//        .iRst(iRst),
+//        .iEn(r_iEn_blue),
+//        .oQ(w_oBlue)
+//        ); 
     
-    number_counter #(.LIMIT(16), .INITIAL_VALUE(INIT_GREEN))
-        number_counter_inst_green
-        (.iClk(iClk), 
-        .iRst(iRst),
-        .iEn(r_iEn_green),
-        .oQ(w_oGreen)
-        );
+//    number_counter #(.LIMIT(16), .INITIAL_VALUE(INIT_GREEN))
+//        number_counter_inst_green
+//        (.iClk(iClk), 
+//        .iRst(iRst),
+//        .iEn(r_iEn_green),
+//        .oQ(w_oGreen)
+//        );
         
     always @(*) begin
         case(rFSM_current)
             sWait: begin
                 r_iEn_timer = 1;
-                r_iEn_red = 0;
-                r_iEn_blue = 0;
-                r_iEn_green = 0;
+                r_oRed_next = r_oRed_current;
+                r_oBlue_next = r_oBlue_current;
+                r_oGreen_next = r_oGreen_current;
             end
             
             sRed_change: begin
-                r_iEn_timer = 1;
-                r_iEn_red = 1;
-                r_iEn_blue = 0;
-                r_iEn_green = 0;
+                r_iEn_timer = 0;
+                if (r_oRed_current == LIMIT - 1) begin
+                    r_oRed_next = 0;
+                end
+                else begin
+                    r_oRed_next = r_oRed_current + 1;
+                end
+                r_oBlue_next = r_oBlue_current;
+                r_oGreen_next = r_oGreen_current;
             end
-            
             sBlue_change: begin
                 r_iEn_timer = 0;
-                r_iEn_red = 0;
-                r_iEn_blue = 1;
-                r_iEn_green = 0;
+                r_oRed_next = r_oRed_current;
+                if (r_oBlue_current == LIMIT - 1) begin
+                    r_oBlue_next = 0;
+                end 
+                else begin
+                    r_oBlue_next = r_oBlue_current + 1;
+                end
+                r_oGreen_next = r_oGreen_current;
             end
             
             sGreen_change: begin
                 r_iEn_timer = 0;
-                r_iEn_red = 0;
-                r_iEn_blue = 0;
-                r_iEn_green = 1;
+                r_oRed_next = r_oRed_current;
+                r_oBlue_next = r_oBlue_current;
+                if (r_oGreen_current == LIMIT - 1) begin
+                    r_oGreen_next = 0;
+                end
+                else begin
+                    r_oGreen_next = r_oGreen_current + 1;
+                end
             end
             
             sIdle: begin
                 r_iEn_timer = 0;
-                r_iEn_red = 0;
-                r_iEn_blue = 0;
-                r_iEn_green = 0;
+                r_oRed_next = r_oRed_current;
+                r_oBlue_next = r_oBlue_current;
+                r_oGreen_next = r_oGreen_current;
             end
             
             default: begin
                 r_iEn_timer = 0;
-                r_iEn_red = 0;
-                r_iEn_blue = 0;
-                r_iEn_green = 0;
+                r_oRed_next = INIT_RED;
+                r_oBlue_next = INIT_BLUE;
+                r_oGreen_next = INIT_GREEN;
             end
         endcase
     end
     
-    assign oRed = w_oRed;
-    assign oBlue = w_oBlue;
-    assign oGreen = w_oGreen;
+    assign oRed = r_oRed_current;
+    assign oBlue = r_oBlue_current;
+    assign oGreen = r_oGreen_current;
 endmodule

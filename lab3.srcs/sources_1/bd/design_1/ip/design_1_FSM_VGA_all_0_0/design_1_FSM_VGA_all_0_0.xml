@@ -14,7 +14,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:50a94a8c</spirit:value>
+            <spirit:value>9:326d54e3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -25,7 +25,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:50a94a8c</spirit:value>
+            <spirit:value>9:326d54e3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -41,11 +41,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Dec 15 16:46:41 UTC 2023</spirit:value>
+            <spirit:value>Fri Dec 15 20:56:03 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:50a94a8c</spirit:value>
+            <spirit:value>9:326d54e3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -57,7 +57,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:00282dfc</spirit:value>
+            <spirit:value>9:5ade8628</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -73,11 +73,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Dec 15 16:46:41 UTC 2023</spirit:value>
+            <spirit:value>Fri Dec 15 20:56:03 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:00282dfc</spirit:value>
+            <spirit:value>9:5ade8628</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -91,11 +91,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Fri Dec 15 16:47:27 UTC 2023</spirit:value>
+            <spirit:value>Fri Dec 15 20:56:49 UTC 2023</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:50a94a8c</spirit:value>
+            <spirit:value>9:326d54e3</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -347,7 +347,12 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>CLOCK_FREQ_RESIZE</spirit:name>
         <spirit:displayName>Clock Freq Resize</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLOCK_FREQ_RESIZE">2000000</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLOCK_FREQ_RESIZE">1000000</spirit:value>
+      </spirit:modelParameter>
+      <spirit:modelParameter spirit:dataType="integer">
+        <spirit:name>CLOCK_FREQ_COLOR</spirit:name>
+        <spirit:displayName>Clock Freq Color</spirit:displayName>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLOCK_FREQ_COLOR">5000000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>SHAPE_SIZEX</spirit:name>
@@ -435,7 +440,12 @@
     <spirit:parameter>
       <spirit:name>CLOCK_FREQ_RESIZE</spirit:name>
       <spirit:displayName>Clock Freq Resize</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CLOCK_FREQ_RESIZE">2000000</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CLOCK_FREQ_RESIZE">1000000</spirit:value>
+    </spirit:parameter>
+    <spirit:parameter>
+      <spirit:name>CLOCK_FREQ_COLOR</spirit:name>
+      <spirit:displayName>Clock Freq Color</spirit:displayName>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CLOCK_FREQ_COLOR">5000000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>SHAPE_SIZEX</spirit:name>

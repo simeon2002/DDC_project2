@@ -126,7 +126,7 @@ module FSM_VGA #(
                     r_oShapeY_next = r_oShapeY_current - 1;
                 end
                 else begin
-                    r_oShapeY_next = VERTICAL_MAX - 1;
+                    r_oShapeY_next = VERTICAL_MAX - 50;
                 end
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 1;
@@ -138,7 +138,7 @@ module FSM_VGA #(
                     r_oShapeX_next = r_oShapeX_current + 1;
                 end
                 else begin
-                    r_oShapeX_next = HORIZONTAL_MIN;
+                    r_oShapeX_next = HORIZONTAL_MIN + 49;
                 end
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 1;
@@ -150,7 +150,7 @@ module FSM_VGA #(
                     r_oShapeY_next = r_oShapeY_current + 1;
                 end
                 else begin
-                    r_oShapeY_next = VERTICAL_MIN;
+                    r_oShapeY_next = VERTICAL_MIN + 49;
                 end
                 
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
@@ -163,7 +163,7 @@ module FSM_VGA #(
                     r_oShapeX_next = r_oShapeX_current - 1;
                 end
                  else begin
-                    r_oShapeX_next = HORIZONTAL_MAX - 1;
+                    r_oShapeX_next = HORIZONTAL_MAX - 50;
                 end
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 1;

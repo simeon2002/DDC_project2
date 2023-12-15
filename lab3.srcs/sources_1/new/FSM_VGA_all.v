@@ -22,7 +22,8 @@
 
 module FSM_VGA_all #(
     parameter CLOCK_FREQ = 500_000,
-    parameter CLOCK_FREQ_RESIZE = 2_000_000,
+    parameter CLOCK_FREQ_RESIZE = 1_000_000,
+    parameter CLOCK_FREQ_COLOR = 5_000_000,
     parameter SHAPE_SIZEX = 50,
     parameter SHAPE_SIZEY = 50,
     parameter SHAPEX = 290,
@@ -167,8 +168,10 @@ FSM_VGA #(
         .oShape_sizeY(w_oShape_sizeY)
     );
     
-FSM_color_change
-    FSM_color_change (
+FSM_color_change #(
+    .CLOCK_FREQ(CLOCK_FREQ_COLOR)
+    )
+    FSM_color_change  (
         .iClk(iClk),
         .iRst(r_iRst), 
         .iPush(r_iButton_color),
@@ -177,6 +180,7 @@ FSM_color_change
         .oBlue(w_oBlue),
         .oGreen(w_oGreen)
         );
+        
     
     // assigning outputs
     assign oShapeX = w_oShapeX;

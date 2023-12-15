@@ -70,7 +70,9 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "design_1_FSM_VGA_all_0_0_synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 4
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL-1065} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 OPTRACE "Creating in-memory project" START { }
@@ -95,7 +97,6 @@ read_verilog -library xil_defaultlib {
   /home/sims0702/DDC_project-main/lab3.srcs/sources_1/new/FSM_color_change.v
   /home/sims0702/DDC_project-main/lab3.srcs/sources_1/new/FSM_resize_shape.v
   /home/sims0702/DDC_project-main/lab3.srcs/sources_1/new/counter.v
-  /home/sims0702/DDC_project-main/lab3.srcs/sources_1/new/number_counter.v
   /home/sims0702/DDC_project-main/lab3.srcs/sources_1/imports/new/timer_1s.v
   /home/sims0702/DDC_project-main/lab3.srcs/sources_1/new/FSM_VGA_all.v
 }

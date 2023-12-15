@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-//Date        : Fri Dec 15 17:46:40 2023
+//Date        : Fri Dec 15 21:56:03 2023
 //Host        : billionaire-he-will-be running 64-bit Ubuntu 20.04.6 LTS
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -44,7 +44,10 @@ module design_1
   wire Debounce_Switch_4_o_Switch;
   wire Debounce_Switch_5_o_Switch;
   wire Debounce_Switch_6_o_Switch;
+  wire [3:0]FSM_VGA_all_0_oBlue;
+  wire [3:0]FSM_VGA_all_0_oGreen;
   wire FSM_VGA_all_0_oLED;
+  wire [3:0]FSM_VGA_all_0_oRed;
   wire FSM_VGA_all_0_oRst_timer;
   wire [9:0]FSM_VGA_all_0_oShapeX;
   wire [9:0]FSM_VGA_all_0_oShapeY;
@@ -113,16 +116,22 @@ module design_1
         .iPush_up(Debounce_Switch_2_o_Switch),
         .iSwitch0(Debounce_Switch_6_o_Switch),
         .iSwitch1(Debounce_Switch_5_o_Switch),
+        .oBlue(FSM_VGA_all_0_oBlue),
+        .oGreen(FSM_VGA_all_0_oGreen),
         .oLED(FSM_VGA_all_0_oLED),
+        .oRed(FSM_VGA_all_0_oRed),
         .oRst_timer(FSM_VGA_all_0_oRst_timer),
         .oShapeX(FSM_VGA_all_0_oShapeX),
         .oShapeY(FSM_VGA_all_0_oShapeY),
         .oShape_sizeX(FSM_VGA_all_0_oShape_sizeX),
         .oShape_sizeY(FSM_VGA_all_0_oShape_sizeY));
   design_1_VGA_pattern_0_0 VGA_pattern_0
-       (.iCountH(VGA_timings_0_oCountH),
+       (.iBlue(FSM_VGA_all_0_oBlue),
+        .iCountH(VGA_timings_0_oCountH),
         .iCountV(VGA_timings_0_oCountV),
+        .iGreen(FSM_VGA_all_0_oGreen),
         .iHS(VGA_timings_0_oHS),
+        .iRed(FSM_VGA_all_0_oRed),
         .iShapeX(FSM_VGA_all_0_oShapeX),
         .iShapeY(FSM_VGA_all_0_oShapeY),
         .iShape_sizeX(FSM_VGA_all_0_oShape_sizeX),
