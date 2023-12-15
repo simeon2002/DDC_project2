@@ -67,7 +67,10 @@ module design_1_FSM_VGA_all_0_0 (
   oShape_sizeX,
   oShape_sizeY,
   oLED,
-  oRst_timer
+  oRst_timer,
+  oRed,
+  oBlue,
+  oGreen
 );
 
 input wire iClk;
@@ -83,6 +86,9 @@ output wire [9 : 0] oShape_sizeX;
 output wire [9 : 0] oShape_sizeY;
 output wire oLED;
 output wire oRst_timer;
+output wire [3 : 0] oRed;
+output wire [3 : 0] oBlue;
+output wire [3 : 0] oGreen;
 
   FSM_VGA_all #(
     .CLOCK_FREQ(500000),
@@ -104,6 +110,9 @@ output wire oRst_timer;
     .oShape_sizeX(oShape_sizeX),
     .oShape_sizeY(oShape_sizeY),
     .oLED(oLED),
-    .oRst_timer(oRst_timer)
+    .oRst_timer(oRst_timer),
+    .oRed(oRed),
+    .oBlue(oBlue),
+    .oGreen(oGreen)
   );
 endmodule

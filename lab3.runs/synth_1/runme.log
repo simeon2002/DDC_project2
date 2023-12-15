@@ -19,47 +19,51 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 299985
+INFO: [Synth 8-7075] Helper process launched with PID 108323
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3314 ; free virtual = 10747
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 744 ; free virtual = 7252
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [/home/sims0702/DDC_project-main/lab3.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'design_1' [/home/sims0702/DDC_project-main/lab3.srcs/sources_1/bd/design_1/synth/design_1.v:13]
-INFO: [Synth 8-6157] synthesizing module 'design_1_Debounce_Switch_0_1' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_1_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_Debounce_Switch_0_1' (1#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_1_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_Debounce_Switch_0_2' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_2_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_Debounce_Switch_0_2' (2#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_2_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_Debounce_Switch_0_3' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_3_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_Debounce_Switch_0_3' (3#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_3_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_Debounce_Switch_0_4' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_4_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_Debounce_Switch_0_4' (4#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_4_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_Debounce_Switch_2_0' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_Debounce_Switch_2_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_Debounce_Switch_2_0' (5#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_Debounce_Switch_2_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_Debounce_Switch_5_0' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_Debounce_Switch_5_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_Debounce_Switch_5_0' (6#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_Debounce_Switch_5_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_FSM_VGA_all_0_0' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_FSM_VGA_all_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_FSM_VGA_all_0_0' (7#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_FSM_VGA_all_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_VGA_pattern_0_0' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_VGA_pattern_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_VGA_pattern_0_0' (8#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_VGA_pattern_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_VGA_timings_0_0' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_VGA_timings_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_VGA_timings_0_0' (9#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_VGA_timings_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'design_1_clk_wiz_0_0' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_clk_wiz_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_clk_wiz_0_0' (10#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-299755-billionaire-he-will-be/realtime/design_1_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_Debounce_Switch_0_1' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_1_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_Debounce_Switch_0_1' (1#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_1_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_Debounce_Switch_0_2' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_Debounce_Switch_0_2' (2#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_2_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_Debounce_Switch_0_3' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_3_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_Debounce_Switch_0_3' (3#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_3_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_Debounce_Switch_0_4' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_4_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_Debounce_Switch_0_4' (4#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_Debounce_Switch_0_4_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_Debounce_Switch_2_0' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_Debounce_Switch_2_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_Debounce_Switch_2_0' (5#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_Debounce_Switch_2_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_Debounce_Switch_5_0' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_Debounce_Switch_5_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_Debounce_Switch_5_0' (6#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_Debounce_Switch_5_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_FSM_VGA_all_0_0' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_FSM_VGA_all_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_FSM_VGA_all_0_0' (7#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_FSM_VGA_all_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'oRed' of module 'design_1_FSM_VGA_all_0_0' is unconnected for instance 'FSM_VGA_all_0' [/home/sims0702/DDC_project-main/lab3.srcs/sources_1/bd/design_1/synth/design_1.v:108]
+WARNING: [Synth 8-7071] port 'oBlue' of module 'design_1_FSM_VGA_all_0_0' is unconnected for instance 'FSM_VGA_all_0' [/home/sims0702/DDC_project-main/lab3.srcs/sources_1/bd/design_1/synth/design_1.v:108]
+WARNING: [Synth 8-7071] port 'oGreen' of module 'design_1_FSM_VGA_all_0_0' is unconnected for instance 'FSM_VGA_all_0' [/home/sims0702/DDC_project-main/lab3.srcs/sources_1/bd/design_1/synth/design_1.v:108]
+WARNING: [Synth 8-7023] instance 'FSM_VGA_all_0' of module 'design_1_FSM_VGA_all_0_0' has 16 connections declared, but only 13 given [/home/sims0702/DDC_project-main/lab3.srcs/sources_1/bd/design_1/synth/design_1.v:108]
+INFO: [Synth 8-6157] synthesizing module 'design_1_VGA_pattern_0_0' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_VGA_pattern_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_VGA_pattern_0_0' (8#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_VGA_pattern_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_VGA_timings_0_0' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_VGA_timings_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_VGA_timings_0_0' (9#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_VGA_timings_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'design_1_clk_wiz_0_0' [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_clk_wiz_0_0' (10#1) [/home/sims0702/DDC_project-main/lab3.runs/synth_1/.Xil/Vivado-107769-billionaire-he-will-be/realtime/design_1_clk_wiz_0_0_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'design_1' (11#1) [/home/sims0702/DDC_project-main/lab3.srcs/sources_1/bd/design_1/synth/design_1.v:13]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_wrapper' (12#1) [/home/sims0702/DDC_project-main/lab3.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3406 ; free virtual = 10840
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 832 ; free virtual = 7341
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3402 ; free virtual = 10836
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 826 ; free virtual = 7335
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3402 ; free virtual = 10836
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 826 ; free virtual = 7335
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3398 ; free virtual = 10832
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 821 ; free virtual = 7330
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -94,20 +98,20 @@ Parsing XDC File [/home/sims0702/DDC_project-main/lab3.runs/synth_1/dont_touch.x
 Finished Parsing XDC File [/home/sims0702/DDC_project-main/lab3.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3319 ; free virtual = 10753
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 731 ; free virtual = 7243
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3319 ; free virtual = 10753
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 731 ; free virtual = 7243
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3380 ; free virtual = 10814
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 791 ; free virtual = 7304
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3380 ; free virtual = 10814
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 791 ; free virtual = 7304
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -126,10 +130,10 @@ Applied set_property DONT_TOUCH = true for design_1_i/Debounce_Switch_4. (constr
 Applied set_property DONT_TOUCH = true for design_1_i/Debounce_Switch_5. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for design_1_i/Debounce_Switch_6. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3383 ; free virtual = 10816
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 791 ; free virtual = 7304
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3383 ; free virtual = 10817
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 792 ; free virtual = 7306
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -151,25 +155,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3371 ; free virtual = 10808
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 780 ; free virtual = 7297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3251 ; free virtual = 10688
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 657 ; free virtual = 7173
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3251 ; free virtual = 10688
+Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 657 ; free virtual = 7173
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3253 ; free virtual = 10690
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 656 ; free virtual = 7172
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -187,37 +191,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3247 ; free virtual = 10685
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 652 ; free virtual = 7169
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3247 ; free virtual = 10685
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 652 ; free virtual = 7169
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3247 ; free virtual = 10685
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 652 ; free virtual = 7169
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3247 ; free virtual = 10685
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 652 ; free virtual = 7169
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3247 ; free virtual = 10685
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 652 ; free virtual = 7169
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3247 ; free virtual = 10685
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 652 ; free virtual = 7169
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -254,23 +258,23 @@ Report Cell Usage:
 |12    |OBUF                       |    15|
 +------+---------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3247 ; free virtual = 10685
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 652 ; free virtual = 7169
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3307 ; free virtual = 10745
-Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3307 ; free virtual = 10745
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 707 ; free virtual = 7224
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 707 ; free virtual = 7224
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3374 ; free virtual = 10811
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 787 ; free virtual = 7304
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3319 ; free virtual = 10757
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 733 ; free virtual = 7249
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-40 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+40 Infos, 6 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2215.051 ; gain = 0.000 ; free physical = 3449 ; free virtual = 10886
+synth_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2199.070 ; gain = 0.000 ; free physical = 861 ; free virtual = 7378
 INFO: [Common 17-1381] The checkpoint '/home/sims0702/DDC_project-main/lab3.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Dec 15 05:55:39 2023...
+INFO: [Common 17-206] Exiting Vivado at Fri Dec 15 17:48:09 2023...

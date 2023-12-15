@@ -7,6 +7,7 @@ reg r_iClk, r_iRst;
 reg r_iPush_left, r_iPush_down, r_iPush_right, r_iPush_up, r_iSwitch0, r_iSwitch1;
 wire w_oLED;
 wire [9 : 0] w_oShapeX, w_oShapeY, w_oShape_sizeY, w_oShape_sizeX;
+wire [3:0] w_oRed, w_oBlue, w_oGreen;
 // module instantiation
 
 FSM_VGA_all #(.CLOCK_FREQ(15), .CLOCK_FREQ_RESIZE(15), .SHAPE_SIZEX(99), .SHAPE_SIZEY(98))
@@ -22,7 +23,10 @@ FSM_VGA_all #(.CLOCK_FREQ(15), .CLOCK_FREQ_RESIZE(15), .SHAPE_SIZEX(99), .SHAPE_
         .oShapeX(w_oShapeX), 
         .oShapeY(w_oShapeY),
         .oShape_sizeX(w_oShape_sizeX),
-        .oShape_sizeY(w_oShape_sizeY)
+        .oShape_sizeY(w_oShape_sizeY),
+        .oRed(w_oRed),
+        .oBlue(w_oBlue),
+        .oGreen(w_oGreen)
     );
 
 // clock definitions

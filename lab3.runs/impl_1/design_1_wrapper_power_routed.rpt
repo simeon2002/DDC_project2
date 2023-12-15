@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date             : Fri Dec 15 05:56:33 2023
+| Date             : Fri Dec 15 17:49:03 2023
 | Host             : billionaire-he-will-be running 64-bit Ubuntu 20.04.6 LTS
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -54,11 +54,11 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        8 |       --- |             --- |
 | Slice Logic    |    <0.001 |      611 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      235 |     53200 |            0.44 |
+|   LUT as Logic |    <0.001 |      234 |     53200 |            0.44 |
 |   CARRY4       |    <0.001 |       63 |     13300 |            0.47 |
 |   Register     |    <0.001 |      243 |    106400 |            0.23 |
 |   Others       |     0.000 |       28 |       --- |             --- |
-| Signals        |    <0.001 |      472 |       --- |             --- |
+| Signals        |    <0.001 |      475 |       --- |             --- |
 | MMCM           |     0.115 |        1 |         4 |           25.00 |
 | I/O            |    <0.001 |       22 |       125 |           17.60 |
 | Static Power   |     0.108 |          |           |                 |

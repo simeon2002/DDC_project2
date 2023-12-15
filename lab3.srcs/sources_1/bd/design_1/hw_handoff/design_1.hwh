@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 15 05:52:15 2023" VIVADOVERSION="2020.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 15 17:46:41 2023" VIVADOVERSION="2020.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -308,6 +308,9 @@
             <CONNECTION INSTANCE="VGA_timings_0" PORT="iRst"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" LEFT="3" NAME="oRed" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="3" NAME="oBlue" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="3" NAME="oGreen" RIGHT="0" SIGIS="undef"/>
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>

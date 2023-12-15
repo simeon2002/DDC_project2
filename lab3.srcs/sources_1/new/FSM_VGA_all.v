@@ -31,12 +31,14 @@ module FSM_VGA_all #(
     (
     input wire iClk, iPush_left, iPush_down, iPush_right, iPush_up, iSwitch0, iSwitch1, 
     output wire [9:0] oShapeX, oShapeY, oShape_sizeX, oShape_sizeY, 
-    output wire oLED, oRst_timer
+    output wire oLED, oRst_timer,
+    output wire [3:0] oRed, oBlue, oGreen
     );
     /*Note: no explicit reset as input! is defined as a push button however at sw0 = 1 sw1 = 1*/
 // variable definitions
 wire [9 : 0] w_oShapeX, w_oShapeY, w_oShape_sizeX, w_oShape_sizeY;
 wire w_oLED;
+wire [3 : 0] w_oRed, w_oBlue, w_oGreen;
 reg [1:0] r_iDirection;
 reg r_iButton_move, r_iButton_color, r_iButton_resize, r_iRst;
 
@@ -165,6 +167,17 @@ FSM_VGA #(
         .oShape_sizeY(w_oShape_sizeY)
     );
     
+FSM_color_change
+    FSM_color_change (
+        .iClk(iClk),
+        .iRst(r_iRst), 
+        .iPush(r_iButton_color),
+        .iDirection_pushed(r_iDirection),
+        .oRed(w_oRed),
+        .oBlue(w_oBlue),
+        .oGreen(w_oGreen)
+        );
+    
     // assigning outputs
     assign oShapeX = w_oShapeX;
     assign oShapeY = w_oShapeY;
@@ -172,4 +185,7 @@ FSM_VGA #(
     assign oShape_sizeY = w_oShape_sizeY;
     assign oLED = w_oLED;
     assign oRst_timer = r_iRst;
+    assign oRed = w_oRed;
+    assign oBlue = w_oBlue;
+    assign oGreen = w_oGreen;
 endmodule
