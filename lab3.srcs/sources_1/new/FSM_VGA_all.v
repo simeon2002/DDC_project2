@@ -68,7 +68,7 @@ begin
             r_iButton_move = 1;
         end
         else begin
-            r_iDirection = 0;
+            r_iDirection = 3;
             r_iButton_move = 0;
         end
    end 

@@ -96,7 +96,7 @@ module FSM_color_change
             end
             
             sWait: begin
-               if (iDirection_pushed == 3 && oTimer == 1 && r_iEn_random_current == 1) begin
+               if (/*iDirection_pushed == 3 && */oTimer == 1 && r_iEn_random_current == 1) begin
                     rFSM_next = sRandom_change;
                 end
                 else if (iPush == 1 && oTimer == 1) begin
@@ -216,21 +216,21 @@ module FSM_color_change
                 r_iEn_random_next = r_iEn_random_current;
                 
                 if (r_oRed_current == LIMIT - 1) begin
-                    r_oRed_next = 0;
+                    r_oRed_next = 1;
                 end
                 else begin
                     r_oRed_next = r_oRed_current + 1;
                 end
                 
                 if (r_oBlue_current == LIMIT - 1) begin
-                    r_oBlue_next = 0;
+                    r_oBlue_next = 1;
                 end
                 else begin
                     r_oBlue_next = r_oBlue_current + 1;
                 end
                 
                 if (r_oGreen_current == LIMIT - 1) begin
-                    r_oGreen_next = 0;
+                    r_oGreen_next = 1;
                 end
                 else begin
                     r_oGreen_next = r_oGreen_current + 1;

@@ -46,6 +46,8 @@ module VGA_pattern #(
     reg [3:0] r_oGreen;
     reg [3:0] r_oBlue;
     
+    
+    /*if just in the moving shape's FSM*/
     // moving shape dimension definitions.
     always @(*)
     begin
@@ -66,6 +68,25 @@ module VGA_pattern #(
             r_oGreen = 0;
             r_oBlue = 0;
          end
+    end
+    
+    
+    /*if in the jump_game FSM*/
+    always @(*)
+begin
+    r_oGreen <= 4'b0000;
+    r_oBlue <= 4'b0000;
+    r_oRed <= 4'b0000;
+        if((iCountH <= 120 && iCountH>=100) && ((iCountV>=0 && iCountV<=200) || (iCountV <= 480 && iCountV >= 320)))
+                 r_oGreen <= 4'b1111;
+            else if((iCountH <= 240 && iCountH>=220) && ((iCountV>=0 && iCountV<=220) || (iCountV <= 480 && iCountV >= 360)))
+                 r_oGreen <= 4'b1111;
+            else if((iCountH <= 360 && iCountH>=340) && ((iCountV>=0 && iCountV<=180) || (iCountV <= 480 && iCountV >= 280)))
+                 r_oGreen <= 4'b1111;
+            else if((iCountH <= 480 && iCountH>=460) && ((iCountV>=0 && iCountV<=300) || (iCountV <= 480 && iCountV >= 420)))
+                 r_oGreen <= 4'b1111;
+            else if((iCountH <= 600 && iCountH>=580) && ((iCountV>=0 && iCountV<=340) || (iCountV <= 480 && iCountV >= 400)))
+                 r_oGreen <= 4'b1111;
     end
  
     assign oVS = iVS; 
