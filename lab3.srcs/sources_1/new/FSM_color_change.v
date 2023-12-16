@@ -1,24 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 12/15/2023 06:05:40 AM
-// Design Name: 
-// Module Name: FSM_color_change
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
 
 module FSM_color_change
     #(
@@ -96,7 +76,7 @@ module FSM_color_change
             end
             
             sWait: begin
-               if (/*iDirection_pushed == 3 && */oTimer == 1 && r_iEn_random_current == 1) begin
+               if (/*iDirection_pushed == 3 && */oTimer == 1 && r_iEn_random_current == 1) begin // idir == 3 is removed as it can then keep toggling during the other movement directions as well.
                     rFSM_next = sRandom_change;
                 end
                 else if (iPush == 1 && oTimer == 1) begin

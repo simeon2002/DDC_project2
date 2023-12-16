@@ -32,7 +32,7 @@ module FSM_VGA_all #(
     (
     input wire iClk, iPush_left, iPush_down, iPush_right, iPush_up, iSwitch0, iSwitch1, 
     output wire [9:0] oShapeX, oShapeY, oShape_sizeX, oShape_sizeY, 
-    output wire oLED, oRst_timer,
+    output wire oLED, oRst_timer, oEn_jump_game,
     output wire [3:0] oRed, oBlue, oGreen
     );
     /*Note: no explicit reset as input! is defined as a push button however at sw0 = 1 sw1 = 1*/
@@ -41,7 +41,7 @@ wire [9 : 0] w_oShapeX, w_oShapeY, w_oShape_sizeX, w_oShape_sizeY;
 wire w_oLED;
 wire [3 : 0] w_oRed, w_oBlue, w_oGreen;
 reg [1:0] r_iDirection;
-reg r_iButton_move, r_iButton_color, r_iButton_resize, r_iRst;
+reg r_iButton_move, r_iButton_color, r_iButton_resize, r_iRst, r_oEn_jump_game;
 
 // logic to determine direction to move.
 always @(*) 
@@ -50,6 +50,7 @@ begin
         // initializing not used variables
         r_iButton_resize = 0;
         r_iButton_color = 0;
+        r_oEn_jump_game = 0;
         r_iRst = 0;
         if (iPush_up == 1 && iPush_down == 0 && iPush_left == 0 && iPush_right == 0) begin
             r_iDirection = 0;
@@ -77,6 +78,7 @@ begin
         // initializing not used variables
         r_iButton_move = 0;
         r_iButton_resize = 0;
+        r_oEn_jump_game = 0;
         if (iPush_up == 1 && iPush_down == 0 && iPush_left == 0 && iPush_right == 0) begin // red color
             r_iButton_color = 1;
             r_iDirection = 0;
@@ -108,6 +110,8 @@ begin
         r_iButton_move = 0;
         r_iButton_color = 0;
         r_iRst = 0;
+        r_oEn_jump_game = 0;
+        
         if (iPush_up == 1 && iPush_down == 0 && iPush_left == 0 && iPush_right == 0) begin // extening x direction
             r_iButton_resize = 1;
             r_iDirection = 0;                         
@@ -134,7 +138,15 @@ begin
         r_iButton_move = 0;   
         r_iButton_resize = 0;
         r_iButton_color = 0;
-        r_iRst = 1;
+//        r_iRst = 1;
+        
+        if (iPush_up == 1) begin
+            r_oEn_jump_game = 1;
+        end
+        else begin
+            r_oEn_jump_game = 0;
+            r_iRst = 1;
+        end
    end
 end
 
@@ -197,4 +209,5 @@ FSM_color_change #(
     assign oRed = w_oRed;
     assign oBlue = w_oBlue;
     assign oGreen = w_oGreen;
+    assign oEn_jump_game = r_oEn_jump_game;
 endmodule

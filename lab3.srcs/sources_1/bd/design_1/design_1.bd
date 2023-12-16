@@ -433,6 +433,9 @@
           "iVS": {
             "direction": "I"
           },
+          "iEn_jump_game": {
+            "direction": "I"
+          },
           "iRed": {
             "direction": "I",
             "left": "3",
@@ -539,6 +542,9 @@
             "direction": "O"
           },
           "oRst_timer": {
+            "direction": "O"
+          },
+          "oEn_jump_game": {
             "direction": "O"
           },
           "oRed": {
@@ -757,6 +763,12 @@
         "ports": [
           "FSM_VGA_all_0/oGreen",
           "VGA_pattern_0/iGreen"
+        ]
+      },
+      "FSM_VGA_all_0_oEn_jump_game": {
+        "ports": [
+          "FSM_VGA_all_0/oEn_jump_game",
+          "VGA_pattern_0/iEn_jump_game"
         ]
       }
     }

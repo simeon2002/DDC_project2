@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Dec 16 09:34:03 2023" VIVADOVERSION="2020.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Dec 16 17:11:22 2023" VIVADOVERSION="2020.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -309,6 +309,11 @@
             <CONNECTION INSTANCE="VGA_timings_0" PORT="iRst"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" NAME="oEn_jump_game" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oEn_jump_game">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="VGA_pattern_0" PORT="iEn_jump_game"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" LEFT="3" NAME="oRed" RIGHT="0" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oRed">
           <CONNECTIONS>
             <CONNECTION INSTANCE="VGA_pattern_0" PORT="iRed"/>
@@ -382,6 +387,11 @@
         <PORT DIR="I" NAME="iVS" SIGIS="undef" SIGNAME="VGA_timings_0_oVS">
           <CONNECTIONS>
             <CONNECTION INSTANCE="VGA_timings_0" PORT="oVS"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="iEn_jump_game" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oEn_jump_game">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="FSM_VGA_all_0" PORT="oEn_jump_game"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="3" NAME="iRed" RIGHT="0" SIGIS="undef" SIGNAME="FSM_VGA_all_0_oRed">

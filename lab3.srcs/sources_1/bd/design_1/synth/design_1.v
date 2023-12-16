@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-//Date        : Sat Dec 16 09:34:03 2023
+//Date        : Sat Dec 16 17:11:21 2023
 //Host        : billionaire-he-will-be running 64-bit Ubuntu 20.04.6 LTS
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -45,6 +45,7 @@ module design_1
   wire Debounce_Switch_5_o_Switch;
   wire Debounce_Switch_6_o_Switch;
   wire [3:0]FSM_VGA_all_0_oBlue;
+  wire FSM_VGA_all_0_oEn_jump_game;
   wire [3:0]FSM_VGA_all_0_oGreen;
   wire FSM_VGA_all_0_oLED;
   wire [3:0]FSM_VGA_all_0_oRed;
@@ -117,6 +118,7 @@ module design_1
         .iSwitch0(Debounce_Switch_6_o_Switch),
         .iSwitch1(Debounce_Switch_5_o_Switch),
         .oBlue(FSM_VGA_all_0_oBlue),
+        .oEn_jump_game(FSM_VGA_all_0_oEn_jump_game),
         .oGreen(FSM_VGA_all_0_oGreen),
         .oLED(FSM_VGA_all_0_oLED),
         .oRed(FSM_VGA_all_0_oRed),
@@ -129,6 +131,7 @@ module design_1
        (.iBlue(FSM_VGA_all_0_oBlue),
         .iCountH(VGA_timings_0_oCountH),
         .iCountV(VGA_timings_0_oCountV),
+        .iEn_jump_game(FSM_VGA_all_0_oEn_jump_game),
         .iGreen(FSM_VGA_all_0_oGreen),
         .iHS(VGA_timings_0_oHS),
         .iRed(FSM_VGA_all_0_oRed),

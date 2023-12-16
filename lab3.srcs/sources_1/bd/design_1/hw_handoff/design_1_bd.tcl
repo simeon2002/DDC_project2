@@ -302,6 +302,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net Debounce_Switch_5_o_Switch [get_bd_pins Debounce_Switch_5/o_Switch] [get_bd_pins FSM_VGA_all_0/iSwitch1]
   connect_bd_net -net Debounce_Switch_6_o_Switch [get_bd_pins Debounce_Switch_6/o_Switch] [get_bd_pins FSM_VGA_all_0/iSwitch0]
   connect_bd_net -net FSM_VGA_all_0_oBlue [get_bd_pins FSM_VGA_all_0/oBlue] [get_bd_pins VGA_pattern_0/iBlue]
+  connect_bd_net -net FSM_VGA_all_0_oEn_jump_game [get_bd_pins FSM_VGA_all_0/oEn_jump_game] [get_bd_pins VGA_pattern_0/iEn_jump_game]
   connect_bd_net -net FSM_VGA_all_0_oGreen [get_bd_pins FSM_VGA_all_0/oGreen] [get_bd_pins VGA_pattern_0/iGreen]
   connect_bd_net -net FSM_VGA_all_0_oLED [get_bd_ports oLED] [get_bd_pins FSM_VGA_all_0/oLED]
   connect_bd_net -net FSM_VGA_all_0_oRed [get_bd_pins FSM_VGA_all_0/oRed] [get_bd_pins VGA_pattern_0/iRed]

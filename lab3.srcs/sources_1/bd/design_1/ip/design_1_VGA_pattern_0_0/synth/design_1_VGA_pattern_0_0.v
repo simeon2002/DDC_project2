@@ -64,6 +64,7 @@ module design_1_VGA_pattern_0_0 (
   iShape_sizeY,
   iHS,
   iVS,
+  iEn_jump_game,
   iRed,
   iBlue,
   iGreen,
@@ -82,6 +83,7 @@ input wire [9 : 0] iShapeY;
 input wire [9 : 0] iShape_sizeY;
 input wire iHS;
 input wire iVS;
+input wire iEn_jump_game;
 input wire [3 : 0] iRed;
 input wire [3 : 0] iBlue;
 input wire [3 : 0] iGreen;
@@ -111,6 +113,7 @@ output wire oHS;
     .iShape_sizeY(iShape_sizeY),
     .iHS(iHS),
     .iVS(iVS),
+    .iEn_jump_game(iEn_jump_game),
     .iRed(iRed),
     .iBlue(iBlue),
     .iGreen(iGreen),

@@ -68,6 +68,7 @@ module design_1_FSM_VGA_all_0_0 (
   oShape_sizeY,
   oLED,
   oRst_timer,
+  oEn_jump_game,
   oRed,
   oBlue,
   oGreen
@@ -86,6 +87,7 @@ output wire [9 : 0] oShape_sizeX;
 output wire [9 : 0] oShape_sizeY;
 output wire oLED;
 output wire oRst_timer;
+output wire oEn_jump_game;
 output wire [3 : 0] oRed;
 output wire [3 : 0] oBlue;
 output wire [3 : 0] oGreen;
@@ -112,6 +114,7 @@ output wire [3 : 0] oGreen;
     .oShape_sizeY(oShape_sizeY),
     .oLED(oLED),
     .oRst_timer(oRst_timer),
+    .oEn_jump_game(oEn_jump_game),
     .oRed(oRed),
     .oBlue(oBlue),
     .oGreen(oGreen)
