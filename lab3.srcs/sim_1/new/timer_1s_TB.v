@@ -1,39 +1,58 @@
-
 `timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 10/26/2023 04:08:12 AM
+// Design Name: 
+// Module Name: timer1s_TB
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
-// solution: for the test bench, the localparam CLK_FREQ_inst had to be a small value!!!
 
 module timer_1s_TB();
+localparam CLOCK_FREQ = 10;
+reg r_iClk, r_iRst, r_iEn;
+wire w_oQ;
 
-    localparam CLK_FREQ_inst = 25;
-    localparam N_inst = $clog2(CLK_FREQ_inst -1);
-    
-    reg r_iClk, r_iRst;
-    wire w_oQ;
+timer_1s #(.CLOCK_FREQ(CLOCK_FREQ)) timer1s_inst(.iRst(r_iRst), .r_iEn(r_iEn), .iClk(r_iClk), .oQ(w_oQ));
 
-    timer_1s #(.CLK_FREQ(CLK_FREQ_inst)) timer_1s_inst
-    (.iClk(r_iClk), .iRst(r_iRst), .oQ(w_oQ));
-    
-    
-    localparam T = 20; 
-    
-    always begin
+localparam T = 50;
+
+always
+begin
     r_iClk = 1;
-    #(T/2);
+    #(T / 2);
     r_iClk = 0;
-    #(T/2);
-    end
-    
-    initial begin 
-    r_iRst = 1;
-    #10;
+    #(T / 2);
+end
+
+
+initial 
+begin
+    r_iRst = 1; 
+    r_iEn = 1;
+    #(50);
     r_iRst = 0;
-    #2000000000;
+    #(20*T);
+    r_iEn = 0;
+    #(15 * T);
     r_iRst = 1;
-    #100000;
+    #( 3* T);
     r_iRst = 0;
+    #(2 * T);
     $stop;
-    end
-    
+
+end
 
 endmodule
