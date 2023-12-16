@@ -139,20 +139,7 @@ begin
 end
 
 // module instantiation
-FSM_VGA #(
-    .CLOCK_FREQ(CLOCK_FREQ),
-    .shapeX(SHAPEX),
-    .shapeY(SHAPEY)
-    )
-    FSM_move (
-        .iClk(iClk),
-        .iRst(r_iRst),
-        .iPush(r_iButton_move),
-        .iDirection_pushed(r_iDirection),
-        .oLED(w_oLED), 
-        .oShapeX(w_oShapeX), 
-        .oShapeY(w_oShapeY)
-    );
+
     
  FSM_resize_shape #(
     .CLOCK_FREQ(CLOCK_FREQ_RESIZE),
@@ -167,6 +154,24 @@ FSM_VGA #(
         .oShape_sizeX(w_oShape_sizeX), 
         .oShape_sizeY(w_oShape_sizeY)
     );
+    
+FSM_VGA #(
+    .CLOCK_FREQ(CLOCK_FREQ),
+    .shapeX(SHAPEX),
+    .shapeY(SHAPEY)
+    )
+    FSM_move (
+        .iClk(iClk),
+        .iRst(r_iRst),
+        .iPush(r_iButton_move),
+        .iDirection_pushed(r_iDirection),
+        .oLED(w_oLED), 
+        .oShapeX(w_oShapeX), 
+        .oShapeY(w_oShapeY),
+        .iShape_sizeX(w_oShape_sizeX),
+        .iShape_sizeY(w_oShape_sizeY)
+    );
+
     
 FSM_color_change #(
     .CLOCK_FREQ(CLOCK_FREQ_COLOR)
