@@ -49,9 +49,13 @@ module FSM_color_change_TB;
             r_iDirection_pushed <= 2;
             r_iButton_pushed <= 1;
         end
+        else if (r_iPush_left == 1) begin
+            r_iDirection_pushed = 3;
+            r_iButton_pushed = 1;
+        end
         else 
         begin
-            r_iDirection_pushed <= 0;
+            r_iDirection_pushed <= 3;
             r_iButton_pushed <= 0;
         end
     end
@@ -92,11 +96,7 @@ module FSM_color_change_TB;
        
         #(5*T);
         
-        /*nothing should happen*/ 
-        r_iPush_left = 1;
-        #(50*T); // should toggle between the states every 15 cycles.
-        r_iPush_left = 0;
-        #(10*T);
+      
         
         /*blue increases*/
         r_iPush_right = 1;
@@ -121,7 +121,16 @@ module FSM_color_change_TB;
         #(10*T);
         r_iRst = 0;
         #(5*T);
+        r_iPush_left = 1;
+        #(10*T); // should toggle between the states every 15 cycles.
+        r_iPush_left = 0;
+        #(100*T);
+        r_iPush_left = 1;
+        #(20*T);
+        r_iPush_left = 0;
         $stop;
+
+
     end
     
 endmodule

@@ -23,7 +23,7 @@
 module FSM_VGA_all #(
     parameter CLOCK_FREQ = 500_000,
     parameter CLOCK_FREQ_RESIZE = 1_000_000,
-    parameter CLOCK_FREQ_COLOR = 5_000_000,
+    parameter CLOCK_FREQ_COLOR = 1_000_000,
     parameter SHAPE_SIZEX = 50,
     parameter SHAPE_SIZEY = 50,
     parameter SHAPEX = 290,
@@ -51,19 +51,19 @@ begin
         r_iButton_resize = 0;
         r_iButton_color = 0;
         r_iRst = 0;
-        if (iPush_up == 1) begin
+        if (iPush_up == 1 && iPush_down == 0 && iPush_left == 0 && iPush_right == 0) begin
             r_iDirection = 0;
             r_iButton_move = 1;
         end
-        else if (iPush_right == 1) begin
+        else if (iPush_right == 1 && iPush_left == 0 && iPush_up == 0 && iPush_down == 0) begin
             r_iDirection = 1;
             r_iButton_move = 1;
         end
-        else if (iPush_down == 1) begin
+        else if (iPush_down == 1 && iPush_left == 0 && iPush_up == 0 && iPush_right == 0) begin
             r_iDirection = 2;
             r_iButton_move = 1;
         end
-        else if (iPush_left == 1) begin
+        else if (iPush_left == 1 && iPush_right == 0 && iPush_up == 0 && iPush_down == 0) begin
             r_iDirection = 3;
             r_iButton_move = 1;
         end
@@ -73,34 +73,34 @@ begin
         end
    end 
    
-   else if (iSwitch0 == 1 && iSwitch1 == 1) begin //(1,1) color change + reset
+   else if (iSwitch0 == 1 && iSwitch1 == 1) begin //(1,1) color change 
         // initializing not used variables
         r_iButton_move = 0;
         r_iButton_resize = 0;
-        if (iPush_up == 1) begin // red color
+        if (iPush_up == 1 && iPush_down == 0 && iPush_left == 0 && iPush_right == 0) begin // red color
             r_iButton_color = 1;
             r_iDirection = 0;
             r_iRst = 0;
         end
-        else if (iPush_right == 1) begin // blue color
+        else if (iPush_right == 1 && iPush_left == 0 && iPush_down == 0 && iPush_up == 0) begin // blue color
             r_iButton_color = 1;
             r_iDirection = 1;
             r_iRst = 0;
         end
-        else if (iPush_down == 1) begin // green color
+        else if (iPush_down == 1 && iPush_left == 0 && iPush_right == 0 && iPush_up == 0) begin // green color
             r_iButton_color = 1;
             r_iDirection = 2; 
             r_iRst = 0;
         end
-        else if (iPush_left == 1) begin // reset state
-            r_iRst = 1;
-            r_iButton_color = 0;
-            r_iDirection = 0;
+        else if (iPush_left == 1 && iPush_right == 0 && iPush_down == 0 && iPush_up == 0) begin // reset state
+            r_iRst = 0;
+            r_iButton_color = 1;
+            r_iDirection = 3;
         end
         else begin
             r_iRst = 0;
             r_iButton_color = 0;
-            r_iDirection = 0;
+            r_iDirection = 3;
         end
    end
    else if (iSwitch0 == 1 && iSwitch1 == 0) begin //(1,0) resizing x and y direction --> uses same fsm as movement.
@@ -108,19 +108,19 @@ begin
         r_iButton_move = 0;
         r_iButton_color = 0;
         r_iRst = 0;
-        if (iPush_up == 1) begin // extening x direction
+        if (iPush_up == 1 && iPush_down == 0 && iPush_left == 0 && iPush_right == 0) begin // extening x direction
             r_iButton_resize = 1;
             r_iDirection = 0;                         
         end
-        else if (iPush_right == 1) begin // extending y direction
+        else if (iPush_right == 1 && iPush_left == 0 && iPush_down == 0 && iPush_up == 0) begin // extending y direction
             r_iButton_resize = 1;
             r_iDirection = 1;
         end
-        else if (iPush_down == 1) begin // shrinking x direction
+        else if (iPush_down == 1 && iPush_left == 0 && iPush_right == 0 && iPush_up == 0) begin // shrinking x direction
             r_iButton_resize = 1;
             r_iDirection = 2;
         end
-        else if (iPush_left == 1) begin // shrinking y direction
+        else if (iPush_left == 1 && iPush_right == 0 && iPush_down == 0 && iPush_up == 0) begin // shrinking y direction
             r_iButton_resize = 1;
             r_iDirection = 3;
         end
@@ -134,7 +134,7 @@ begin
         r_iButton_move = 0;   
         r_iButton_resize = 0;
         r_iButton_color = 0;
-        r_iRst = 0;
+        r_iRst = 1;
    end
 end
 

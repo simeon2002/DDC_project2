@@ -93,7 +93,7 @@ output wire [3 : 0] oGreen;
   FSM_VGA_all #(
     .CLOCK_FREQ(500000),
     .CLOCK_FREQ_RESIZE(1000000),
-    .CLOCK_FREQ_COLOR(5000000),
+    .CLOCK_FREQ_COLOR(1000000),
     .SHAPE_SIZEX(50),
     .SHAPE_SIZEY(50),
     .SHAPEX(290),

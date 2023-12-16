@@ -68,10 +68,14 @@ module FSM_VGA #(
             sWait: begin
                 if (iPush == 1 && oTimer) begin
                     case (iDirection_pushed)
-                        0: wFSM_next = sMove_up;
-                        1: wFSM_next = sMove_right;
-                        2: wFSM_next = sMove_down;
-                        3: wFSM_next = sMove_left;
+                        0: if (iDirection_pushed != 1 && iDirection_pushed != 2 && iDirection_pushed != 3)
+                            wFSM_next = sMove_up;
+                        1: if (iDirection_pushed != 0 && iDirection_pushed != 2 && iDirection_pushed != 3)
+                            wFSM_next = sMove_right;
+                        2: if (iDirection_pushed != 0 && iDirection_pushed != 1 && iDirection_pushed != 3)
+                            wFSM_next = sMove_down;
+                        3:  if (iDirection_pushed != 0 && iDirection_pushed != 1 && iDirection_pushed != 2)
+                            wFSM_next = sMove_left;
                         default: wFSM_next = sWait;
                     endcase
                 end else if (iPush == 1 && oTimer == 0) begin
@@ -126,7 +130,7 @@ module FSM_VGA #(
                     r_oShapeY_next = r_oShapeY_current - 1;
                 end
                 else begin
-                    r_oShapeY_next = VERTICAL_MAX - 50;
+                    r_oShapeY_next = VERTICAL_MAX - 1;
                 end
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 1;
@@ -138,7 +142,7 @@ module FSM_VGA #(
                     r_oShapeX_next = r_oShapeX_current + 1;
                 end
                 else begin
-                    r_oShapeX_next = HORIZONTAL_MIN + 49;
+                    r_oShapeX_next = HORIZONTAL_MAX;
                 end
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 1;
@@ -150,7 +154,7 @@ module FSM_VGA #(
                     r_oShapeY_next = r_oShapeY_current + 1;
                 end
                 else begin
-                    r_oShapeY_next = VERTICAL_MIN + 49;
+                    r_oShapeY_next = VERTICAL_MAX - 1;
                 end
                 
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
@@ -163,7 +167,7 @@ module FSM_VGA #(
                     r_oShapeX_next = r_oShapeX_current - 1;
                 end
                  else begin
-                    r_oShapeX_next = HORIZONTAL_MAX - 50;
+                    r_oShapeX_next = HORIZONTAL_MAX;
                 end
                 r_iEn_timer = 0; // it shouldn't be counting in the moving state.
                 r_oLED = 1;

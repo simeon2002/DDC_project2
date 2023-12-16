@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "FSM_VGA_all,Vivado 2020.1" *)
 (* CHECK_LICENSE_TYPE = "design_1_FSM_VGA_all_0_0,FSM_VGA_all,{}" *)
-(* CORE_GENERATION_INFO = "design_1_FSM_VGA_all_0_0,FSM_VGA_all,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=FSM_VGA_all,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CLOCK_FREQ=500000,CLOCK_FREQ_RESIZE=1000000,CLOCK_FREQ_COLOR=5000000,SHAPE_SIZEX=50,SHAPE_SIZEY=50,SHAPEX=290,SHAPEY=210}" *)
+(* CORE_GENERATION_INFO = "design_1_FSM_VGA_all_0_0,FSM_VGA_all,{x_ipProduct=Vivado 2020.1,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=FSM_VGA_all,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,CLOCK_FREQ=500000,CLOCK_FREQ_RESIZE=1000000,CLOCK_FREQ_COLOR=1000000,SHAPE_SIZEX=50,SHAPE_SIZEY=50,SHAPEX=290,SHAPEY=210}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_FSM_VGA_all_0_0 (
@@ -94,7 +94,7 @@ output wire [3 : 0] oGreen;
   FSM_VGA_all #(
     .CLOCK_FREQ(500000),
     .CLOCK_FREQ_RESIZE(1000000),
-    .CLOCK_FREQ_COLOR(5000000),
+    .CLOCK_FREQ_COLOR(1000000),
     .SHAPE_SIZEX(50),
     .SHAPE_SIZEY(50),
     .SHAPEX(290),

@@ -22,7 +22,7 @@
 
 module FSM_color_change
     #(
-    parameter CLOCK_FREQ = 25_000_000,
+    parameter CLOCK_FREQ = 2_000_000,
     parameter INIT_RED = 15,
     parameter INIT_BLUE = 0,
     parameter INIT_GREEN = 0,
@@ -35,15 +35,18 @@ module FSM_color_change
     );
     
     // definition of states
-    localparam sInit = 3'b000;
-    localparam sIdle = 3'b001;
-    localparam sWait  = 3'b010;
-    localparam sRed_change = 3'b011;
-    localparam sBlue_change = 3'b100;
-    localparam sGreen_change = 3'b101;
+    localparam sInit = 4'b0000;
+    localparam sIdle = 4'b0001;
+    localparam sWait  = 4'b0010;
+    localparam sRed_change = 4'b0011;
+    localparam sBlue_change = 4'b0100;
+    localparam sGreen_change = 4'b0101;
+    localparam sRandom_change = 4'b0111;
+    localparam sPush_random = 4'b1000;
+    localparam sToggle = 4'b1001;
     
     // state register
-    reg [2:0] rFSM_current, rFSM_next;
+    reg [3:0] rFSM_current, rFSM_next;
     
     always @(posedge iClk)
     begin
@@ -57,45 +60,75 @@ module FSM_color_change
     
     
     // definition of next state logic
+    /*timer instantiation*/
     wire oTimer;
     reg r_iEn_timer;
-    assign w_iRst_timer = (rFSM_current == sIdle || iRst || rFSM_current == sRed_change || rFSM_current == sBlue_change ||rFSM_current == sGreen_change) ? 1: 0;
+    assign w_iRst_timer = (iRst || rFSM_current == sRandom_change /*rFSM_current == sIdle*/ || rFSM_current == sRed_change || rFSM_current == sBlue_change ||rFSM_current == sGreen_change) ? 1: 0;
     timer_1s #(.CLOCK_FREQ(CLOCK_FREQ))
         timer_inst(.iClk(iClk), .iRst(w_iRst_timer), .iEn(r_iEn_timer), .oQ(oTimer));
-        
+    
+    /*random toggler register*/
+    reg r_iEn_random_current, r_iEn_random_next;
+    always @(posedge iClk) begin
+        if (iRst == 1) begin
+            r_iEn_random_current <= 0;
+        end
+        else begin
+            r_iEn_random_current <= r_iEn_random_next; 
+        end
+    end    
     always @(*) begin
         case (rFSM_current) 
             sInit: begin
                 rFSM_next = sIdle;
             end
             
-            sIdle: begin
-                if (iPush == 0) begin
-                    rFSM_next = sIdle; 
+            sIdle: begin                               
+                if (iPush == 1 && iDirection_pushed == 3) begin
+                    rFSM_next = sPush_random;
+                end
+                else if (iPush == 1 || r_iEn_random_current == 1) begin 
+                    rFSM_next = sWait; 
                 end
                 else begin
-                    rFSM_next = sWait; 
+                    rFSM_next = sIdle; 
                 end
             end
             
             sWait: begin
-                if (iPush == 1 && oTimer == 1) begin
+               if (iDirection_pushed == 3 && oTimer == 1 && r_iEn_random_current == 1) begin
+                    rFSM_next = sRandom_change;
+                end
+                else if (iPush == 1 && oTimer == 1) begin
                     case (iDirection_pushed) 
                         0: rFSM_next = sRed_change;
                         1: rFSM_next = sBlue_change;
-                        2: rFSM_next = sGreen_change;
+                        2: rFSM_next = sGreen_change;                
                         default: rFSM_next = sWait;
                     endcase
                 end
-                else if (iPush == 1 && oTimer == 0) begin
-                    rFSM_next = sWait;
+                else if (iPush == 1 && iDirection_pushed == 3 || iPush == 0 && iDirection_pushed == 0 || iPush == 0 && iDirection_pushed == 1 || iPush == 0 && iDirection_pushed == 2 || r_iEn_random_current == 0) begin
+                    rFSM_next = sIdle;
                 end
                 else begin
-                    rFSM_next = sIdle;
+                    rFSM_next = sWait;
                 end
             end
             
-            sRed_change, sBlue_change, sGreen_change: begin
+            sPush_random: begin
+                if (iPush == 0) begin
+                    rFSM_next = sToggle;
+                end
+                else begin
+                    rFSM_next = sPush_random;
+                end
+            end
+            
+            sToggle: begin
+                rFSM_next = sIdle;
+            end
+            
+            sRed_change, sBlue_change, sGreen_change, sRandom_change: begin
                 rFSM_next = sWait;
             end
             
@@ -107,43 +140,18 @@ module FSM_color_change
     
     // defining output logic
     reg [3:0] r_oRed_current, r_oRed_next, r_oBlue_current, r_oBlue_next, r_oGreen_current, r_oGreen_next;
-//    reg r_iEn_red, r_iEn_blue, r_iEn_green;
-//    wire [3:0] w_oRed, w_oBlue, w_oGreen;
     
     always @(posedge iClk) begin
         r_oRed_current <= r_oRed_next;
         r_oBlue_current <= r_oBlue_next;
         r_oGreen_current <= r_oGreen_next;
     end
-    
-//    number_counter #(.LIMIT(16), .INITIAL_VALUE(INIT_RED))
-//        number_counter_inst_red
-//        (.iClk(iClk), 
-//        .iRst(iRst),
-//        .iEn(r_iEn_red),
-//        .oQ(w_oRed)
-//        );
-        
-//    number_counter #(.LIMIT(16), .INITIAL_VALUE(INIT_BLUE))
-//        number_counter_inst_blue
-//        (.iClk(iClk), 
-//        .iRst(iRst),
-//        .iEn(r_iEn_blue),
-//        .oQ(w_oBlue)
-//        ); 
-    
-//    number_counter #(.LIMIT(16), .INITIAL_VALUE(INIT_GREEN))
-//        number_counter_inst_green
-//        (.iClk(iClk), 
-//        .iRst(iRst),
-//        .iEn(r_iEn_green),
-//        .oQ(w_oGreen)
-//        );
         
     always @(*) begin
         case(rFSM_current)
             sWait: begin
                 r_iEn_timer = 1;
+                r_iEn_random_next = r_iEn_random_current;
                 r_oRed_next = r_oRed_current;
                 r_oBlue_next = r_oBlue_current;
                 r_oGreen_next = r_oGreen_current;
@@ -151,6 +159,7 @@ module FSM_color_change
             
             sRed_change: begin
                 r_iEn_timer = 0;
+                r_iEn_random_next = r_iEn_random_current;
                 if (r_oRed_current == LIMIT - 1) begin
                     r_oRed_next = 0;
                 end
@@ -162,6 +171,7 @@ module FSM_color_change
             end
             sBlue_change: begin
                 r_iEn_timer = 0;
+                r_iEn_random_next = r_iEn_random_current;
                 r_oRed_next = r_oRed_current;
                 if (r_oBlue_current == LIMIT - 1) begin
                     r_oBlue_next = 0;
@@ -174,6 +184,7 @@ module FSM_color_change
             
             sGreen_change: begin
                 r_iEn_timer = 0;
+                r_iEn_random_next = r_iEn_random_current;
                 r_oRed_next = r_oRed_current;
                 r_oBlue_next = r_oBlue_current;
                 if (r_oGreen_current == LIMIT - 1) begin
@@ -183,16 +194,60 @@ module FSM_color_change
                     r_oGreen_next = r_oGreen_current + 1;
                 end
             end
-            
-            sIdle: begin
+                    
+            sToggle: begin
+                r_iEn_random_next = ~r_iEn_random_current;
                 r_iEn_timer = 0;
                 r_oRed_next = r_oRed_current;
                 r_oBlue_next = r_oBlue_current;
                 r_oGreen_next = r_oGreen_current;
             end
             
-            default: begin
+            sPush_random: begin
                 r_iEn_timer = 0;
+                r_iEn_random_next = r_iEn_random_current;
+                r_oRed_next = r_oRed_current;
+                r_oBlue_next = r_oBlue_current;
+                r_oGreen_next = r_oGreen_current;
+            end
+            
+            sRandom_change: begin
+                r_iEn_timer = 0;
+                r_iEn_random_next = r_iEn_random_current;
+                
+                if (r_oRed_current == LIMIT - 1) begin
+                    r_oRed_next = 0;
+                end
+                else begin
+                    r_oRed_next = r_oRed_current + 1;
+                end
+                
+                if (r_oBlue_current == LIMIT - 1) begin
+                    r_oBlue_next = 0;
+                end
+                else begin
+                    r_oBlue_next = r_oBlue_current + 1;
+                end
+                
+                if (r_oGreen_current == LIMIT - 1) begin
+                    r_oGreen_next = 0;
+                end
+                else begin
+                    r_oGreen_next = r_oGreen_current + 1;
+                end
+            end
+               
+            sIdle: begin
+                r_iEn_timer = 0;
+                r_iEn_random_next = r_iEn_random_current;
+                r_oRed_next = r_oRed_current;
+                r_oBlue_next = r_oBlue_current;
+                r_oGreen_next = r_oGreen_current;
+            end
+            
+            default: begin // init state
+                r_iEn_timer = 0;
+                r_iEn_random_next = 0;
                 r_oRed_next = INIT_RED;
                 r_oBlue_next = INIT_BLUE;
                 r_oGreen_next = INIT_GREEN;

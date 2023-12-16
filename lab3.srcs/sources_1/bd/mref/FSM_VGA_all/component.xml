@@ -15,7 +15,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d32b567a</spirit:value>
+            <spirit:value>b3a31138</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -28,7 +28,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>d32b567a</spirit:value>
+            <spirit:value>b3a31138</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -293,7 +293,7 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>CLOCK_FREQ_COLOR</spirit:name>
         <spirit:displayName>Clock Freq Color</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLOCK_FREQ_COLOR">5000000</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.CLOCK_FREQ_COLOR">1000000</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>SHAPE_SIZEX</spirit:name>
@@ -343,7 +343,7 @@
     <spirit:parameter>
       <spirit:name>CLOCK_FREQ_COLOR</spirit:name>
       <spirit:displayName>Clock Freq Color</spirit:displayName>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CLOCK_FREQ_COLOR">5000000</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.CLOCK_FREQ_COLOR">1000000</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>SHAPE_SIZEX</spirit:name>
@@ -385,7 +385,7 @@
         <xilinx:designToolContext>IPI</xilinx:designToolContext>
       </xilinx:designToolContexts>
       <xilinx:coreRevision>1</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2023-12-15T20:55:56Z</xilinx:coreCreationDateTime>
+      <xilinx:coreCreationDateTime>2023-12-16T06:56:45Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2020.1</xilinx:xilinxVersion>
